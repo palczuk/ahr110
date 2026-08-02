@@ -1,0 +1,223 @@
+{
+  "course": {
+    "code": "AHR 110",
+    "title": "Intro to Refrigeration",
+    "program": "Basic Air Conditioning, Heating & Refrigeration Certificate (C35100)",
+    "school": "Fayetteville Technical Community College",
+    "hours": "Aula: 2h · Lab: 6h · Créditos: 5",
+    "textbook": "Refrigeration & Air Conditioning Technology — Whitman, Johnson, Tomczyk & Silberstein",
+    "note": "O item 1 (Ciclo Básico de Refrigeração) já está coberto na página principal do Fieldcraft. Este módulo cobre os itens 2 a 11 do outline oficial do curso."
+  },
+  "topics": [
+    {
+      "id": 2,
+      "title": "Evaporadores e Condensadores",
+      "stage": "mixed",
+      "textbookRef": "Unidades sobre Evaporadores e Condensadores",
+      "overview": "São os dois trocadores de calor do sistema. O evaporador fica no lado de baixa pressão e absorve calor do ambiente/produto para dentro do refrigerante; o condensador fica no lado de alta pressão e rejeita esse calor para fora (ar ou água).",
+      "concepts": [
+        { "title": "Evaporador (lado baixo)", "text": "O refrigerante entra como mistura líquido/vapor de baixa pressão e ferve à medida que absorve calor do ar ou do produto refrigerado. Saída deve ser 100% vapor (com superaquecimento) antes do compressor." },
+        { "title": "Condensador (lado alto)", "text": "Recebe vapor quente e de alta pressão do compressor, rejeita calor sensível e latente, e sai como líquido sub-resfriado. Pode ser resfriado a ar, a água ou evaporativo." },
+        { "title": "Tipos de evaporador", "text": "Direct expansion (DX) é o mais comum em residencial/comercial; flooded (inundado) é usado em refrigeração industrial de maior porte." },
+        { "title": "TD (Temperature Difference)", "text": "Diferença entre a temperatura do ar entrando na serpentina e a temperatura de saturação do refrigerante. É a principal métrica de projeto/diagnóstico de evaporadores." },
+        { "title": "Serpentinas aletadas", "text": "Aletas de alumínio aumentam a área de troca de calor; espaçamento das aletas varia conforme aplicação (congelamento exige aletas mais espaçadas para evitar bloqueio por gelo)." }
+      ],
+      "keyValues": [
+        { "label": "TD típico de evaporador (ar condicionado)", "value": "10–20 °F" },
+        { "label": "TD típico de condensador a ar acima da temp. ambiente", "value": "20–30 °F" },
+        { "label": "Estado do refrigerante na saída do evaporador", "value": "100% vapor superaquecido" },
+        { "label": "Estado do refrigerante na saída do condensador", "value": "100% líquido sub-resfriado" }
+      ],
+      "tools": ["Termômetro de pinça (clamp-on)", "Anemômetro", "Espátula para aletas (fin comb)"],
+      "safety": ["Serpentinas de condensador podem estar muito quentes ao toque durante operação", "Bordas de aletas de alumínio cortam — usar luvas"]
+    },
+    {
+      "id": 3,
+      "title": "Compressores e Dispositivos de Expansão",
+      "stage": "mixed",
+      "textbookRef": "Unidades sobre Compressores e Dispositivos de Medição (Metering Devices)",
+      "overview": "O compressor é o 'coração' do sistema — eleva a pressão e empurra o refrigerante pelo circuito. O dispositivo de expansão controla o fluxo de líquido para o evaporador e cria a queda de pressão que possibilita a ebulição.",
+      "concepts": [
+        { "title": "Tipos de compressor", "text": "Alternativo (reciprocante), scroll, rotativo e parafuso. Scroll é o mais comum em ar condicionado residencial/comercial leve atualmente." },
+        { "title": "Golpe de líquido (liquid slugging)", "text": "Compressor é projetado para comprimir vapor, não líquido. Retorno de líquido ao compressor pode quebrar válvulas e bielas — por isso o superaquecimento na sucção é tão importante." },
+        { "title": "Válvula de expansão termostática (TXV)", "text": "Usa um bulbo sensor de temperatura na linha de sucção para modular a abertura da válvula e manter um superaquecimento constante, independente da carga térmica." },
+        { "title": "Tubo capilar / orifício fixo", "text": "Restrição de diâmetro fixo, sem partes móveis. Mais simples e barato, mas menos eficiente em cargas variáveis — muito comum em sistemas residenciais menores." },
+        { "title": "Relação de compressão", "text": "Razão entre a pressão absoluta de descarga e a pressão absoluta de sucção; relações muito altas indicam problema (restrição, sujeira no condensador, etc.)." }
+      ],
+      "keyValues": [
+        { "label": "Compressores comuns", "value": "Reciprocante, Scroll, Rotativo, Parafuso" },
+        { "label": "Dispositivo de expansão variável", "value": "TXV (bulbo sensor)" },
+        { "label": "Dispositivo de expansão fixo", "value": "Tubo capilar / orifício fixo (piston)" }
+      ],
+      "tools": ["Manifold gauge", "Termômetro de contato para o bulbo da TXV"],
+      "safety": ["Nunca dar partida no compressor com válvulas de serviço fechadas (pressuriza e pode explodir)", "Cuidado com partes móveis e superfícies quentes do compressor em operação"]
+    },
+    {
+      "id": 4,
+      "title": "Superheat e Subcooling",
+      "stage": "mixed",
+      "textbookRef": "Unidade sobre Diagnóstico de Carga de Refrigerante",
+      "overview": "As duas medições mais usadas no dia a dia do técnico para saber se um sistema está corretamente carregado e funcionando dentro do esperado.",
+      "concepts": [
+        { "title": "Superheat (superaquecimento)", "text": "Diferença entre a temperatura real do vapor e a temperatura de saturação correspondente à pressão de sucção. Confirma que só existe vapor (sem líquido) entrando no compressor." },
+        { "title": "Subcooling (sub-resfriamento)", "text": "Diferença entre a temperatura de saturação do líquido (pela pressão de descarga) e a temperatura real do líquido na saída do condensador. Confirma que a linha de líquido está 100% líquida." },
+        { "title": "Quando usar cada método", "text": "Sistemas com orifício fixo/capilar são carregados por SUPERHEAT de sucção. Sistemas com TXV são carregados por SUBCOOLING na linha de líquido." },
+        { "title": "Como calcular", "text": "Meça a pressão (sucção ou descarga), converta para temperatura de saturação usando a tabela P-T do refrigerante, e compare com a temperatura real medida na tubulação com um termômetro de contato." }
+      ],
+      "keyValues": [
+        { "label": "Superheat típico — sistemas de orifício fixo", "value": "10–25 °F (varia por fabricante)" },
+        { "label": "Subcooling típico — sistemas com TXV", "value": "10–20 °F (varia por fabricante)" },
+        { "label": "Fórmula geral", "value": "Superheat = Temp. real do vapor − Temp. saturação (sucção)" },
+        { "label": "Fórmula geral", "value": "Subcooling = Temp. saturação (descarga) − Temp. real do líquido" }
+      ],
+      "tools": ["Manifold digital com sondas de temperatura", "Tabela Pressão-Temperatura (P-T) do refrigerante", "Termômetro de contato tipo pinça"],
+      "safety": []
+    },
+    {
+      "id": 5,
+      "title": "Manifold Gauges, Válvulas de Serviço e Especialidades",
+      "stage": "mixed",
+      "textbookRef": "Unidade sobre Instrumentos e Componentes Especiais",
+      "overview": "O conjunto manifold é o principal instrumento do técnico. Junto dele, é essencial reconhecer as válvulas de serviço do sistema e os componentes 'especialistas' que protegem e controlam o circuito.",
+      "concepts": [
+        { "title": "Código de cores do manifold", "text": "Azul = lado de baixa pressão/sucção. Vermelho = lado de alta pressão/descarga. Amarelo = mangueira de serviço (para cilindro, bomba de vácuo ou máquina de recuperação)." },
+        { "title": "Válvulas Schrader", "text": "Válvulas tipo pino (como pneu de carro), comuns em portas de serviço de sistemas menores. Exigem hoses com depressor de núcleo." },
+        { "title": "Válvulas de serviço tipo back-seat", "text": "Encontradas em compressores maiores; permitem isolar totalmente o manômetro do sistema (back-seated) ou abrir passagem total (front-seated)." },
+        { "title": "Filtro secador (drier)", "text": "Remove umidade e partículas do refrigerante — sempre trocado após abertura do sistema." },
+        { "title": "Visor de líquido (sight glass)", "text": "Permite ver bolhas (indicando falta de carga) e mudança de cor de um indicador de umidade." },
+        { "title": "Válvula solenoide e acumulador de sucção", "text": "A solenoide corta o fluxo de líquido eletricamente; o acumulador protege o compressor retendo líquido residual antes da sucção." }
+      ],
+      "keyValues": [
+        { "label": "Baixa pressão / sucção", "value": "Azul" },
+        { "label": "Alta pressão / descarga", "value": "Vermelho" },
+        { "label": "Mangueira de serviço", "value": "Amarelo" }
+      ],
+      "tools": ["Manifold set (analógico ou digital)", "Mangueiras com low-loss fittings", "Adaptadores de válvula Schrader", "Core removal tool"],
+      "safety": ["Nunca abrir totalmente a válvula de alta para o cilindro/atmosfera — risco de sobrepressão", "Usar core removal tool com sistema despressurizado corretamente para trocar núcleos Schrader"]
+    },
+    {
+      "id": 6,
+      "title": "Testes de Pressão e Evacuação",
+      "stage": "amber",
+      "textbookRef": "Unidade sobre Evacuação e Detecção de Vazamentos",
+      "overview": "Antes de carregar qualquer sistema, é preciso confirmar que ele não vaza e remover todo o ar e umidade de dentro dele — dois processos totalmente diferentes que muitos iniciantes confundem.",
+      "concepts": [
+        { "title": "Teste de pressão (standing pressure test)", "text": "Pressuriza-se o sistema com nitrogênio seco (NUNCA oxigênio ou ar comprimido) e observa-se a manutenção da pressão por um período para detectar vazamentos." },
+        { "title": "Por que nitrogênio e não O2/ar", "text": "Oxigênio em contato com óleo do sistema sob pressão é risco de explosão. Ar comprimido comum introduz umidade. Nitrogênio é inerte e seco." },
+        { "title": "Evacuação (vácuo)", "text": "Remove ar e vapor de água do sistema. Como a água ferve a temperaturas muito baixas sob vácuo profundo, ela evapora e é removida pela bomba." },
+        { "title": "Micron gauge", "text": "Instrumento de precisão que mede o nível de vácuo em mícrons de mercúrio — muito mais preciso que o manifold para confirmar vácuo profundo." },
+        { "title": "Tripla evacuação (opcional)", "text": "Técnica de romper o vácuo com nitrogênio e evacuar novamente, várias vezes, para diluir contaminantes residuais em sistemas sem bomba de vácuo de qualidade." }
+      ],
+      "keyValues": [
+        { "label": "Meta de vácuo profundo", "value": "≤ 500 microns (varia por especificação do fabricante)" },
+        { "label": "Gás usado no teste de pressão", "value": "Nitrogênio seco (nunca O2 ou ar comprimido)" }
+      ],
+      "tools": ["Cilindro de nitrogênio com regulador", "Bomba de vácuo de 2 estágios", "Micron gauge (vacuômetro digital)", "Detector de vazamento eletrônico ou solução de bolhas"],
+      "safety": ["Nunca usar oxigênio para pressurizar um sistema de refrigeração", "Respeitar limites de pressão do regulador de nitrogênio conforme especificação do sistema"]
+    },
+    {
+      "id": 7,
+      "title": "Carga do Sistema — Pressões e Temperaturas Típicas",
+      "stage": "mixed",
+      "textbookRef": "Unidade sobre Carga de Refrigerante",
+      "overview": "Depois de evacuado, o sistema recebe a carga de refrigerante — seja por peso exato (balança) ou monitorando superheat/subcooling em tempo real.",
+      "concepts": [
+        { "title": "Carga por peso", "text": "Método mais preciso para carga inicial: usa-se uma balança eletrônica de carga para inserir a quantidade exata especificada na plaqueta do equipamento." },
+        { "title": "Carga por performance (superheat/subcooling)", "text": "Usada para ajuste fino ou quando não há especificação de peso exato — compara-se superheat/subcooling medidos com os valores-alvo do fabricante." },
+        { "title": "Tabela P-T (Pressão-Temperatura)", "text": "Cada refrigerante tem uma relação fixa entre pressão de saturação e temperatura — ferramenta indispensável para converter leituras do manifold em temperaturas de saturação." },
+        { "title": "Posição do cilindro na carga", "text": "Cilindro na vertical libera vapor (carga do lado de baixa, sistema em funcionamento); invertido/deitado libera líquido (carga do lado de alta, sistema parado) — método depende do procedimento e do refrigerante." }
+      ],
+      "keyValues": [
+        { "label": "Fonte da carga exata", "value": "Plaqueta de identificação do equipamento (nameplate)" },
+        { "label": "Instrumento de precisão", "value": "Balança de carga eletrônica" },
+        { "label": "Referência de conversão", "value": "Tabela P-T específica do refrigerante em uso" }
+      ],
+      "tools": ["Balança de carga eletrônica", "Tabela P-T impressa ou app", "Termômetro de contato", "Manifold digital"],
+      "safety": ["Cilindros de refrigerante sob pressão — manusear na posição correta conforme fase desejada (líquido/vapor)", "Nunca misturar refrigerantes diferentes no mesmo cilindro ou sistema"]
+    },
+    {
+      "id": 8,
+      "title": "Recuperação de Refrigerante",
+      "stage": "amber",
+      "textbookRef": "Unidade sobre Recuperação e Regulamentação Ambiental",
+      "overview": "Antes de abrir qualquer sistema para reparo, a EPA exige que o refrigerante seja recuperado — nunca liberado para a atmosfera.",
+      "concepts": [
+        { "title": "Vapor recovery", "text": "Remove o refrigerante em estado de vapor; mais lento, usado em sistemas pequenos ou com pouca carga." },
+        { "title": "Liquid recovery", "text": "Remove o refrigerante em estado líquido; mais rápido para sistemas com carga maior." },
+        { "title": "Push-pull", "text": "Método usado em sistemas com grande volume de líquido: a máquina de recuperação 'empurra' vapor para o sistema e 'puxa' líquido de volta, acelerando o processo." },
+        { "title": "Cilindro de recuperação", "text": "Identificado com topo amarelo e corpo cinza; nunca deve ser enchido além de 80% da capacidade para permitir expansão térmica." },
+        { "title": "Exigência legal (EPA Clean Air Act, Seção 608)", "text": "É proibido ventilar (liberar) refrigerantes controlados para a atmosfera — a recuperação é obrigatória por lei nos EUA." }
+      ],
+      "keyValues": [
+        { "label": "Limite de enchimento do cilindro de recuperação", "value": "80% da capacidade" },
+        { "label": "Cor padrão do cilindro de recuperação", "value": "Topo amarelo / corpo cinza" }
+      ],
+      "tools": ["Máquina de recuperação (recovery machine)", "Cilindro de recuperação certificado DOT", "Balança"],
+      "safety": ["Nunca ventilar refrigerante para a atmosfera — ilegal e ambientalmente danoso", "Respeitar o limite de 80% do cilindro para evitar sobrepressão hidráulica"]
+    },
+    {
+      "id": 9,
+      "title": "Refrigeration Tubing, Piping e Técnicas de Solda",
+      "stage": "high",
+      "textbookRef": "Unidade sobre Tubulação e Brazing",
+      "overview": "Habilidade de bancada essencial: cortar, conectar e soldar tubulação de cobre sem introduzir contaminação, vazamentos ou obstruções no sistema.",
+      "concepts": [
+        { "title": "Tipos de tubo de cobre", "text": "Tipo ACR (Air Conditioning and Refrigeration) é limpo e seco internamente, vendido selado, específico para refrigeração — diferente do tubo tipo L usado em encanamento hidráulico comum." },
+        { "title": "Corte e rebarbação", "text": "Cortador de tubo rotativo produz corte reto sem deformar; rebarbação interna e externa evita turbulência e partículas soltas no circuito." },
+        { "title": "Flare (abocardamento) a 45°", "text": "Usado em conexões desmontáveis (ex.: válvulas de serviço). Requer flaring tool e alinhamento preciso para evitar vazamento." },
+        { "title": "Swaging (expansão de ponta)", "text": "Técnica de alargar a ponta de um tubo para encaixar outro do mesmo diâmetro sem precisar de luva/conexão extra." },
+        { "title": "Brazing (solda forte/prata)", "text": "Solda com liga de prata em temperaturas acima de 840 °F, usada em juntas cobre-cobre e cobre-latão do circuito de refrigeração — diferente de soldering (solda macia, temperaturas mais baixas, usada em hidráulica comum)." },
+        { "title": "Purga com nitrogênio durante a solda", "text": "Fluxo de nitrogênio pelo interior da tubulação durante o brazing evita a formação de óxido de cobre (fuligem/carepa) que contamina o sistema." }
+      ],
+      "keyValues": [
+        { "label": "Ângulo padrão do flare", "value": "45°" },
+        { "label": "Temperatura de brazing (solda forte)", "value": "Acima de ~840 °F" },
+        { "label": "Gás de purga durante a solda", "value": "Nitrogênio seco em baixo fluxo" }
+      ],
+      "tools": ["Cortador de tubo", "Rebarbador (reamer)", "Flaring tool", "Swaging tool", "Maçarico (acetileno/MAPP + oxigênio ou air-acetylene)", "Vareta de solda prata e flux"],
+      "safety": ["Óculos de proteção e luvas resistentes ao calor obrigatórios", "Ventilação adequada — fumos de brazing/flux são tóxicos", "Manter cilindros de gás combustível na vertical e presos", "Nunca soldar sistema pressurizado com refrigerante"]
+    },
+    {
+      "id": 10,
+      "title": "Diagramas Elétricos e Motores PSC",
+      "stage": "electric",
+      "textbookRef": "Unidade sobre Fundamentos Elétricos Aplicados a HVACR",
+      "overview": "Leitura básica de diagramas elétricos e entendimento de motores PSC, os mais comuns em ventiladores e compressores de sistemas residenciais/comerciais leves.",
+      "concepts": [
+        { "title": "Diagrama esquemático (ladder)", "text": "Representa o circuito em formato de 'escada', mostrando a lógica de controle (contatos, bobinas, chaves) separada da fiação física real." },
+        { "title": "Diagrama de fiação (wiring diagram)", "text": "Mostra a fiação física real como ela é conectada nos componentes — usado para localizar fios no equipamento." },
+        { "title": "Motor PSC (Permanent Split Capacitor)", "text": "Usa um capacitor permanentemente conectado ao enrolamento auxiliar, melhorando torque de partida e eficiência de operação contínua — muito comum em motores de ventilador e alguns compressores." },
+        { "title": "Capacitor de partida x capacitor de marcha (run)", "text": "O capacitor de partida (start) atua só no arranque e sai do circuito; o de marcha (run) permanece conectado durante toda a operação, como no PSC." },
+        { "title": "Contator e relé", "text": "O contator liga/desliga cargas de maior corrente (compressor); o relé costuma controlar cargas menores ou sinalizar/comutar circuitos de controle." },
+        { "title": "Testes básicos com multímetro", "text": "Verificação de continuidade, resistência de enrolamentos e presença de tensão — fundamentais para diagnosticar motores e componentes elétricos." }
+      ],
+      "keyValues": [
+        { "label": "PSC = ", "value": "Permanent Split Capacitor" },
+        { "label": "Capacitor que permanece no circuito", "value": "Capacitor de marcha (run)" },
+        { "label": "Capacitor que atua só na partida", "value": "Capacitor de partida (start)" }
+      ],
+      "tools": ["Multímetro", "Diagrama elétrico do fabricante", "Amperímetro de gancho (clamp meter)"],
+      "safety": ["Sempre desenergizar e bloquear/etiquetar (lockout/tagout) antes de manusear", "Descarregar capacitores antes de tocá-los — podem reter carga perigosa mesmo desligados"]
+    },
+    {
+      "id": 11,
+      "title": "Preparação para o Exame EPA 608 / CFC",
+      "stage": "amber",
+      "textbookRef": "Apêndice / Material de Revisão — Regulamentação EPA",
+      "overview": "Encerramento do curso: revisão para a certificação federal obrigatória para qualquer pessoa nos EUA que manuseie refrigerantes controlados.",
+      "concepts": [
+        { "title": "Type I", "text": "Cobre equipamentos pequenos e pré-fabricados (ex.: geladeiras domésticas, freezers pequenos)." },
+        { "title": "Type II", "text": "Cobre equipamentos de alta pressão (a maioria dos sistemas de ar condicionado residencial/comercial)." },
+        { "title": "Type III", "text": "Cobre equipamentos de baixa pressão (chillers com refrigerantes de baixa pressão)." },
+        { "title": "Universal", "text": "Combina os três tipos anteriores — exige aprovação em todos os módulos." },
+        { "title": "Clean Air Act, Seção 608", "text": "Base legal da certificação: regula venda, manuseio, recuperação e proibição de ventilação de refrigerantes que afetam a camada de ozônio ou o clima." }
+      ],
+      "keyValues": [
+        { "label": "Certificações disponíveis", "value": "Type I, Type II, Type III, Universal" },
+        { "label": "Base legal", "value": "Clean Air Act — Seção 608 (EPA)" }
+      ],
+      "tools": ["Apostila/banco de questões de revisão", "Provas simuladas"],
+      "safety": []
+    }
+  ]
+}
