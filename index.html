@@ -1,50 +1,67 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AHR 110 · Intro to Refrigeration — Fieldcraft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="app">
-<aside class="sidebar">
-  <div class="brand"><span class="brand-mark">⛭</span><span>Fieldcraft</span></div>
-  <div class="eyebrow" style="margin-top:6px">manual de campo · HVACR</div>
-  <nav class="nav">
-    <a class="active" href="index.html">AHR 110</a>
-    <a href="unit1.html">UNIT 1</a>
-  </nav>
-  <div class="side-note">Personal study material.<br>Confirm chapters and requirements with your instructor.</div>
-</aside>
-<main class="main">
+
+<div class="rail" aria-hidden="true"><svg id="railSvg" preserveAspectRatio="none"></svg></div>
+
 <header class="topbar">
-  <div class="eyebrow">AHR 110 / Intro to Refrigeration</div>
-  <div class="lang"><button data-lang="pt">PT</button><button data-lang="en" class="active">EN</button></div>
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark">⛭</span>
+      <div class="brand-text">
+        <span class="brand-line1">FIELDCRAFT</span>
+        <span class="brand-line2">manual de campo · HVACR</span>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label"><span id="progressCount">0</span>/<span id="progressTotal">10</span> tópicos estudados</div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </div>
 </header>
-<section class="content">
-  <div class="hero">
-    <div class="eyebrow" data-i18n="eyebrow">HVACR STUDY FIELD GUIDE</div>
-    <h1 data-i18n="title">Do vacuum to superheat / subcooling.</h1>
-    <p class="lede" data-i18n="lede">Items 2–11 of the official syllabus: evaporators, compressors, instrumentation, evacuation, charging, recovery, piping/brazing, electrical and EPA 608 exam prep. Item 1 (basic cycle) lives on the main Fieldcraft page.</p>
-    <div class="tags"><span class="tag">LOW SIDE / SUCTION</span><span class="tag">HIGH SIDE / DISCHARGE</span><span class="tag">SAFETY / REGULATION</span><span class="tag">ELECTRICAL</span></div>
-  </div>
 
-  <div class="grid">
-    <article class="card"><div class="eyebrow">UNIT 1</div><h3 data-i18n="u1title">Heat, Temperature & Pressure</h3><p data-i18n="u1desc">Study guide by topic, formulas, key definitions and a 25-question quiz.</p><a class="btn" style="margin-top:16px" href="unit1.html" data-i18n="open">Open Unit 1 →</a></article>
-    <article class="card"><div class="eyebrow">FIELD NOTES</div><h3 data-i18n="sides">Low side / High side</h3><p data-i18n="sidesdesc">Use the guide as a field reference while studying system operation and measurements.</p></article>
-    <article class="card"><div class="eyebrow">EXAM PREP</div><h3 data-i18n="prep">EPA 608 preparation</h3><p data-i18n="prepdesc">Organize concepts, formulas and troubleshooting vocabulary before testing.</p></article>
-  </div>
+<div class="layout">
+  <nav class="sidenav" id="sidenav" aria-label="Navegação de tópicos">
+    <div class="sidenav-course" id="courseInfo"></div>
+    <div class="sidenav-search">
+      <input type="search" id="searchInput" placeholder="Buscar termo, conceito, valor…" autocomplete="off">
+    </div>
+    <ol class="sidenav-list" id="sidenavList"></ol>
+    <p class="sidenav-note" id="courseNote"></p>
+  </nav>
 
-  <section class="section card">
-    <div class="unit-head"><div><div class="eyebrow">AHR 110</div><h2 data-i18n="overview">Course overview</h2><p class="lede" data-i18n="overviewdesc">A bilingual, responsive study interface built in plain HTML, CSS and JavaScript for GitHub Pages.</p></div><a class="btn secondary" href="unit1.html">UNIT 1 →</a></div>
-    <div class="search"><input id="search" type="search" placeholder="Buscar termo, conceito, valor…" data-i18n-placeholder="search"></div>
-    <div id="searchResults" class="grid"></div>
-  </section>
+  <main class="content" id="content">
+    <section class="hero">
+      <p class="hero-eyebrow">AHR 110 — Intro to Refrigeration</p>
+      <h1 class="hero-title">Do vácuo ao<br><span class="hi-low">superheat</span> / <span class="hi-high">subcooling</span>.</h1>
+      <p class="hero-sub">Itens 2–11 do syllabus oficial: evaporadores, compressores, instrumentação, evacuação, carga, recuperação, tubulação/solda, elétrica e prep para o exame EPA 608. O item 1 (ciclo básico) já vive na página principal do Fieldcraft.</p>
+      <div class="hero-legend">
+        <span class="legend-chip legend-low">● lado de baixa / sucção</span>
+        <span class="legend-chip legend-high">● lado de alta / descarga</span>
+        <span class="legend-chip legend-amber">● segurança / regulamentação</span>
+        <span class="legend-chip legend-electric">● elétrica</span>
+      </div>
+    </section>
 
-  <div class="footer">Fieldcraft — material de estudo pessoal, não substitui o syllabus oficial da instituição.</div>
-</section>
-</main>
+    <div id="topics"></div>
+
+    <footer class="page-footer">
+      <p>Referência bibliográfica base: <em>Refrigeration &amp; Air Conditioning Technology</em> — Whitman, Johnson, Tomczyk &amp; Silberstein. Confirme sempre a edição/capítulos indicados pelo instrutor da disciplina.</p>
+      <p class="page-footer-small">Fieldcraft — material de estudo pessoal, não substitui o syllabus oficial da instituição.</p>
+    </footer>
+  </main>
 </div>
-<script src="app.js"></script>
+
+<button id="toTop" aria-label="Voltar ao topo">↑</button>
+
+<script src="script.js"></script>
 </body>
 </html>
