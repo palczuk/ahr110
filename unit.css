@@ -1,0 +1,31 @@
+.back-link{
+  display:block; font-family:var(--mono); font-size:.72rem; color:var(--low);
+  text-decoration:none; margin-bottom:1.3rem;
+}
+.back-link:hover{text-decoration:underline;}
+
+.unit-hero{padding:1.2rem 0 2.2rem; border-bottom:1px solid var(--line); margin-bottom:2.4rem;}
+
+.unit-block{margin-bottom:2.6rem;}
+
+.todo-card{
+  background:var(--panel); border:1px dashed var(--line); border-radius:10px;
+  padding:1.3rem 1.5rem; color:var(--muted); font-family:var(--mono); font-size:.85rem; line-height:1.6;
+}
+
+.quiz-item{
+  background:var(--panel); border:1px solid var(--line); border-radius:10px;
+  padding:1.3rem 1.4rem; margin-bottom:1rem;
+}
+.quiz-question{margin:0 0 .9rem; font-weight:600;}
+.quiz-options{display:flex; flex-direction:column; gap:.5rem;}
+.quiz-option{
+  text-align:left; background:var(--panel-alt); border:1px solid var(--line); color:var(--text);
+  padding:.65rem .8rem; border-radius:8px; cursor:pointer; font-family:var(--sans); font-size:.88rem;
+  transition:border-color .15s, background .15s;
+}
+.quiz-option:hover{border-color:var(--low);}
+.quiz-option.correct{border-color:var(--low); background:var(--low-dim); color:var(--low);}
+.quiz-option.incorrect{border-color:var(--high); background:var(--high-dim); color:var(--high);}
+.quiz-option:disabled{cursor:default;}
+.quiz-feedback{margin:.7rem 0 0; font-family:var(--mono); font-size:.78rem; color:var(--muted); min-height:1.2em;}

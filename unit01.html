@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 1 — Heat and Pressure · Fieldcraft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="unit.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="brand" style="text-decoration:none;">
+      <span class="brand-mark">⛭</span>
+      <div class="brand-text">
+        <span class="brand-line1">FIELDCRAFT</span>
+        <span class="brand-line2" data-i18n="brand.tagline">manual de campo · HVACR</span>
+      </div>
+    </a>
+    <div class="lang-switch" role="group" aria-label="Language / Idioma">
+      <button class="lang-btn" data-lang="pt">PT</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidenav" aria-label="Book units">
+    <a href="index.html" class="back-link" data-i18n="unit.backHome">← Voltar à página inicial</a>
+    <div class="sidenav-heading" data-i18n="nav.heading">UNIDADES DO LIVRO</div>
+    <p class="sidenav-sub" data-i18n="nav.sub">Refrigeration & Air Conditioning Technology</p>
+    <div id="unitsWrap"></div>
+  </nav>
+
+  <main class="content">
+    <section class="unit-hero">
+      <p class="hero-eyebrow" data-i18n="unit.eyebrow">Unidade 01 · Seção I — Teoria do Calor</p>
+      <h1 class="hero-title" data-i18n="unit.title">Calor e Pressão</h1>
+      <p class="hero-sub" data-i18n="unit.subtitle">Espaço reservado para o resumo desta unidade. Preencha as seções abaixo conforme avança no livro.</p>
+    </section>
+
+    <section class="unit-block">
+      <h2 class="section-title" data-i18n="unit.summary.title">Resumo</h2>
+      <div class="todo-card">
+        <p data-i18n="unit.summary.todo">📝 Ainda não preenchido. Substitua este bloco pelos seus próprios resumos: conceitos-chave, fórmulas, tabelas e anotações de aula desta unidade.</p>
+      </div>
+    </section>
+
+    <section class="unit-block">
+      <h2 class="section-title" data-i18n="unit.quiz.title">Quiz</h2>
+      <p class="section-sub" data-i18n="unit.quiz.sub">Modelo de pergunta — duplique o bloco <code>.quiz-item</code> no HTML para adicionar mais.</p>
+
+      <div class="quiz-item" data-answer="b">
+        <p class="quiz-question" data-i18n="unit.quiz.q1">1. O que acontece com a temperatura de um refrigerante em ebulição enquanto a pressão permanece constante?</p>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="a" data-i18n="unit.quiz.q1a">Ela sobe continuamente</button>
+          <button class="quiz-option" data-value="b" data-i18n="unit.quiz.q1b">Ela permanece constante (temperatura de saturação)</button>
+          <button class="quiz-option" data-value="c" data-i18n="unit.quiz.q1c">Ela cai continuamente</button>
+        </div>
+        <p class="quiz-feedback"></p>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <p class="page-footer-small" data-i18n="footer.line2">Fieldcraft — material de estudo pessoal, não substitui o syllabus oficial da instituição.</p>
+    </footer>
+  </main>
+</div>
+
+<script src="script.js"></script>
+<script src="unit.js"></script>
+</body>
+</html>

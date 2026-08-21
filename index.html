@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" id="htmlRoot">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AHR 110 · Intro to Refrigeration — Fieldcraft</title>
+<title>Fieldcraft — HVACR Study Base</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<div class="rail" aria-hidden="true"><svg id="railSvg" preserveAspectRatio="none"></svg></div>
 
 <header class="topbar">
   <div class="topbar-inner">
@@ -18,49 +16,92 @@
       <span class="brand-mark">⛭</span>
       <div class="brand-text">
         <span class="brand-line1">FIELDCRAFT</span>
-        <span class="brand-line2">manual de campo · HVACR</span>
+        <span class="brand-line2" data-i18n="brand.tagline">manual de campo · HVACR</span>
       </div>
     </div>
-    <div class="progress-wrap">
-      <div class="progress-label"><span id="progressCount">0</span>/<span id="progressTotal">10</span> tópicos estudados</div>
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="lang-switch" role="group" aria-label="Language / Idioma">
+      <button class="lang-btn" data-lang="pt">PT</button>
+      <button class="lang-btn" data-lang="en">EN</button>
     </div>
   </div>
 </header>
 
 <div class="layout">
-  <nav class="sidenav" id="sidenav" aria-label="Navegação de tópicos">
-    <div class="sidenav-course" id="courseInfo"></div>
-    <div class="sidenav-search">
-      <input type="search" id="searchInput" placeholder="Buscar termo, conceito, valor…" autocomplete="off">
-    </div>
-    <ol class="sidenav-list" id="sidenavList"></ol>
-    <p class="sidenav-note" id="courseNote"></p>
+  <nav class="sidenav" aria-label="Book units">
+    <div class="sidenav-heading" data-i18n="nav.heading">UNIDADES DO LIVRO</div>
+    <p class="sidenav-sub" data-i18n="nav.sub">Refrigeration &amp; Air Conditioning Technology</p>
+    <div id="unitsWrap"></div>
+    <div class="sidenav-divider"></div>
+    <a class="companion-link" href="ahr110/index.html">
+      <span data-i18n="nav.companionTitle">AHR 110 · Companion do curso</span>
+      <span class="companion-arrow">→</span>
+    </a>
+    <p class="sidenav-note" id="unitsNote"></p>
   </nav>
 
-  <main class="content" id="content">
+  <main class="content">
     <section class="hero">
-      <p class="hero-eyebrow">AHR 110 — Intro to Refrigeration</p>
-      <h1 class="hero-title">Do vácuo ao<br><span class="hi-low">superheat</span> / <span class="hi-high">subcooling</span>.</h1>
-      <p class="hero-sub">Itens 2–11 do syllabus oficial: evaporadores, compressores, instrumentação, evacuação, carga, recuperação, tubulação/solda, elétrica e prep para o exame EPA 608. O item 1 (ciclo básico) já vive na página principal do Fieldcraft.</p>
-      <div class="hero-legend">
-        <span class="legend-chip legend-low">● lado de baixa / sucção</span>
-        <span class="legend-chip legend-high">● lado de alta / descarga</span>
-        <span class="legend-chip legend-amber">● segurança / regulamentação</span>
-        <span class="legend-chip legend-electric">● elétrica</span>
+      <p class="hero-eyebrow" data-i18n="hero.eyebrow">Base de estudos HVACR</p>
+      <h1 class="hero-title" data-i18n="hero.title">O ciclo que move<br>todo o resto.</h1>
+      <p class="hero-sub" data-i18n="hero.sub">Quatro componentes, um circuito fechado, duas pressões. Entenda o ciclo de refrigeração antes de entrar em qualquer unidade do livro.</p>
+    </section>
+
+    <section class="cycle-section">
+      <h2 class="section-title" data-i18n="cycle.title">O Ciclo de Refrigeração</h2>
+      <p class="section-sub" data-i18n="cycle.sub">Toque em cada componente para ver sua função no ciclo.</p>
+
+      <div class="cycle-diagram">
+        <svg class="cycle-lines" viewBox="0 0 600 380" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <defs>
+            <marker id="arrowLow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#3fa9f5"/>
+            </marker>
+            <marker id="arrowHigh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#e2453c"/>
+            </marker>
+          </defs>
+          <!-- Evaporator (bottom-left) -> Compressor (bottom-right) : suction line, low side, blue -->
+          <path class="flow-line flow-low" d="M 130 300 L 470 300" marker-end="url(#arrowLow)"/>
+          <!-- Compressor (bottom-right) -> Condenser (top-right) : hot gas / discharge, high side, red -->
+          <path class="flow-line flow-high" d="M 470 280 L 470 100" marker-end="url(#arrowHigh)"/>
+          <!-- Condenser (top-right) -> Metering device (top-left) : liquid line, high side, red -->
+          <path class="flow-line flow-high" d="M 450 80 L 150 80" marker-end="url(#arrowHigh)"/>
+          <!-- Metering device (top-left) -> Evaporator (bottom-left) : low side entering, blue -->
+          <path class="flow-line flow-low" d="M 130 100 L 130 280" marker-end="url(#arrowLow)"/>
+        </svg>
+
+        <button class="cycle-node node-evaporator" data-node="evaporator" style="left:2%; bottom:6%;">
+          <span class="node-gauge" data-stage="low"></span>
+          <span class="node-label" data-i18n="cycle.evaporator.name">Evaporador</span>
+        </button>
+
+        <button class="cycle-node node-compressor" data-node="compressor" style="right:2%; bottom:6%;">
+          <span class="node-gauge" data-stage="mixed"></span>
+          <span class="node-label" data-i18n="cycle.compressor.name">Compressor</span>
+        </button>
+
+        <button class="cycle-node node-condenser" data-node="condenser" style="right:2%; top:6%;">
+          <span class="node-gauge" data-stage="high"></span>
+          <span class="node-label" data-i18n="cycle.condenser.name">Condensador</span>
+        </button>
+
+        <button class="cycle-node node-valve" data-node="valve" style="left:2%; top:6%;">
+          <span class="node-gauge" data-stage="mixed"></span>
+          <span class="node-label" data-i18n="cycle.valve.name">Válvula de Expansão</span>
+        </button>
+      </div>
+
+      <div class="cycle-detail" id="cycleDetail">
+        <p class="cycle-detail-hint" data-i18n="cycle.hint">↑ Escolha um componente acima para ver a explicação aqui.</p>
       </div>
     </section>
 
-    <div id="topics"></div>
-
     <footer class="page-footer">
-      <p>Referência bibliográfica base: <em>Refrigeration &amp; Air Conditioning Technology</em> — Whitman, Johnson, Tomczyk &amp; Silberstein. Confirme sempre a edição/capítulos indicados pelo instrutor da disciplina.</p>
-      <p class="page-footer-small">Fieldcraft — material de estudo pessoal, não substitui o syllabus oficial da instituição.</p>
+      <p data-i18n="footer.line1">Base de estudos pessoal para o programa de HVACR — Fayetteville Technical Community College.</p>
+      <p class="page-footer-small" data-i18n="footer.line2">Fieldcraft — material de estudo pessoal, não substitui o syllabus oficial da instituição.</p>
     </footer>
   </main>
 </div>
-
-<button id="toTop" aria-label="Voltar ao topo">↑</button>
 
 <script src="script.js"></script>
 </body>
