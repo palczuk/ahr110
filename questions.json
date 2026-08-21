@@ -1,0 +1,277 @@
+[
+  {
+    "id": 1,
+    "question": "Temperature is defined as:",
+    "options": [
+      "A. heat content.",
+      "B. the level of heat.",
+      "C. the British thermal unit.",
+      "D. the absence of cold."
+    ],
+    "answer": "B"
+  },
+  {
+    "id": 2,
+    "question": "The standard conditions for water to boil at 212°F are:",
+    "options": [
+      "A. an atmospheric pressure of 14.696 psig, or 29.92 in. Hg.",
+      "B. an atmospheric pressure of 0 psia, or 29.99 in. Hg.",
+      "C. an atmospheric pressure of 0 psig, or 0.92 in. Hg.",
+      "D. an atmospheric pressure of 14.696 psia, or 29.92 in. Hg."
+    ],
+    "answer": "D"
+  },
+  {
+    "id": 3,
+    "question": "Fahrenheit, Celsius, Rankine, and Kelvin are:",
+    "options": [
+      "A. temperature scales.",
+      "B. pressure scales.",
+      "C. Btu measurements.",
+      "D. heat transfer methods."
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 4,
+    "question": "Under standard conditions, water freezes at:",
+    "options": [
+      "A. 0°C.",
+      "B. 10°C.",
+      "C. 20°C.",
+      "D. 32°C."
+    ],
+    "answer": "D"
+  },
+  {
+    "id": 5,
+    "question": "Molecular motion stops at:",
+    "options": [
+      "A. 212°F.",
+      "B. -32°F.",
+      "C. -460°F.",
+      "D. 0°F."
+    ],
+    "answer": "C"
+  },
+  {
+    "id": 6,
+    "question": "One British thermal unit (Btu) will raise the temperature of:",
+    "options": [
+      "A. 1 gallon of water 1°F.",
+      "B. 1 pound of water 1°F.",
+      "C. 1 pound of water 1°K.",
+      "D. 1 gallon of water 1°C."
+    ],
+    "answer": "B"
+  },
+  {
+    "id": 7,
+    "question": "In which direction does heat flow?",
+    "options": [
+      "A. From a cold substance to a cold substance",
+      "B. From a cold substance to a warm substance",
+      "C. From a warm substance to a warmer substance",
+      "D. From a warm substance to a cold substance"
+    ],
+    "answer": "D"
+  },
+  {
+    "id": 8,
+    "question": "Heat transfer from molecule to molecule is known as:",
+    "options": [
+      "A. radiation.",
+      "B. convection.",
+      "C. conduction.",
+      "D. evaporation."
+    ],
+    "answer": "C"
+  },
+  {
+    "id": 9,
+    "question": "An increase in sensible heat causes:",
+    "options": [
+      "A. a higher thermometer reading.",
+      "B. a lower thermometer reading.",
+      "C. no change of the thermometer reading.",
+      "D. ice to melt."
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 10,
+    "question": "Latent heat causes:",
+    "options": [
+      "A. a higher thermometer reading.",
+      "B. temperature to rise.",
+      "C. a change of state.",
+      "D. temperature to fall."
+    ],
+    "answer": "C"
+  },
+  {
+    "id": 11,
+    "question": "Heat that is transferred by moving in a medium such as air or water is known as:",
+    "options": [
+      "A. radiation.",
+      "B. convection.",
+      "C. conduction.",
+      "D. evaporation."
+    ],
+    "answer": "B"
+  },
+  {
+    "id": 12,
+    "question": "Heat that is transferred through space without heating the space and heats the first solid object it strikes is known as:",
+    "options": [
+      "A. radiation.",
+      "B. convection.",
+      "C. conduction.",
+      "D. evaporation."
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 13,
+    "question": "Atmospheric pressure at sea level under standard conditions is _____ in. Hg or _____ psia.",
+    "options": [
+      "A. 14.696 in. Hg / 29.92 psia",
+      "B. 29.92 in. Hg / 14.696 psia",
+      "C. 0 in. Hg / 14.7 psia",
+      "D. 29.92 in. Hg / 0 psia"
+    ],
+    "answer": "B"
+  },
+  {
+    "id": 14,
+    "question": "To convert temperature from Celsius to Fahrenheit, use the formula:",
+    "options": [
+      "A. °F = (1.8 x °C) + 32",
+      "B. °F = (°C - 32) / 1.8",
+      "C. °F = (1.8 x °C) - 32",
+      "D. °F = °C + 273"
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 15,
+    "question": "To convert temperature from Fahrenheit to Celsius, use the formula:",
+    "options": [
+      "A. °C = (1.8 x °F) + 32",
+      "B. °C = (°F - 32) / 1.8",
+      "C. °C = (°F + 32) x 1.8",
+      "D. °C = °F - 460"
+    ],
+    "answer": "B"
+  },
+  {
+    "id": 16,
+    "question": "To change from psig to psia, you must:",
+    "options": [
+      "A. add 29.92 to psig.",
+      "B. add 14.696 to psig.",
+      "C. subtract 0.925 from psig.",
+      "D. subtract 3.1416 from psig."
+    ],
+    "answer": "B"
+  },
+  {
+    "id": 17,
+    "question": "To change from psia to psig, you must:",
+    "options": [
+      "A. add 29.92 to psia.",
+      "B. subtract 14.696 from psia.",
+      "C. add 14.696 to psia.",
+      "D. multiply psia by 14.696."
+    ],
+    "answer": "B"
+  },
+  {
+    "id": 18,
+    "question": "10 in. Hg is equivalent to approximately:",
+    "options": [
+      "A. 10 psia.",
+      "B. 20 psia.",
+      "C. 25 psia.",
+      "D. 30 psia."
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 19,
+    "question": "2 psia is equivalent to approximately:",
+    "options": [
+      "A. 29 in. Hg vacuum.",
+      "B. 28 in. Hg vacuum.",
+      "C. 27 in. Hg vacuum.",
+      "D. 26 in. Hg vacuum."
+    ],
+    "answer": "D"
+  },
+  {
+    "id": 20,
+    "question": "125 psig is equivalent to:",
+    "options": [
+      "A. 14.696 psia.",
+      "B. 135 psia.",
+      "C. 139.7 psia.",
+      "D. 147.7 psia."
+    ],
+    "answer": "C"
+  },
+  {
+    "id": 21,
+    "question": "A barometer is used to measure:",
+    "options": [
+      "A. atmospheric pressure.",
+      "B. gauge pressure.",
+      "C. absolute pressure.",
+      "D. stratospheric pressure."
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 22,
+    "question": "What size heater is required to heat 20,000 gallons of pool water from 70°F to 72°F in 1 hour (100% efficiency)?",
+    "options": [
+      "A. 166,000 Btu/h",
+      "B. 332,000 Btu/h",
+      "C. 86,000 Btu/h",
+      "D. 400,000 Btu/h"
+    ],
+    "answer": "B"
+  },
+  {
+    "id": 23,
+    "question": "How many Btus are required to change 1 lb of ice at 20°F to steam at 220°F?",
+    "options": [
+      "A. 1,000 Btu",
+      "B. 1,180 Btu",
+      "C. 1,304 Btu",
+      "D. 1,440 Btu"
+    ],
+    "answer": "C"
+  },
+  {
+    "id": 24,
+    "question": "Which mode of heat transfer involves molecular motion in a fluid medium?",
+    "options": [
+      "A. Conduction",
+      "B. Convection",
+      "C. Radiation",
+      "D. Fusion"
+    ],
+    "answer": "B"
+  },
+  {
+    "id": 25,
+    "question": "What is the key difference between sensible heat and latent heat?",
+    "options": [
+      "A. Sensible heat changes state; latent heat changes temperature.",
+      "B. Sensible heat can be measured with a thermometer; latent heat changes state without changing temperature.",
+      "C. Sensible heat only applies to liquids; latent heat applies to gases.",
+      "D. There is no difference."
+    ],
+    "answer": "B"
+  }
+]

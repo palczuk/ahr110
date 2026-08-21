@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AHR 110 · Unit 1 — Heat, Temperature, and Pressure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.unit-wrap{max-width:920px}
+.unit-hero{padding:1.2rem 0 2rem;border-bottom:1px solid var(--line);margin-bottom:2rem}
+.unit-eyebrow{font-family:var(--mono);font-size:.75rem;color:var(--low);letter-spacing:.08em;text-transform:uppercase}
+.unit-title{font-family:var(--display);font-size:clamp(2.2rem,5vw,3.7rem);margin:.4rem 0 .8rem}
+.unit-sub{color:var(--muted);max-width:75ch}
+.unit-nav{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}
+.unit-nav a{color:var(--muted);text-decoration:none;border:1px solid var(--line);background:var(--panel);padding:.35rem .55rem;border-radius:5px;font-family:var(--mono);font-size:.7rem}
+.unit-nav a:hover{color:var(--text);border-color:var(--low)}
+.u-topic{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:1.5rem;margin-bottom:1rem;scroll-margin-top:90px}
+.u-num{font-family:var(--mono);color:var(--low);font-size:.72rem}
+.u-topic h2{font-family:var(--display);font-size:1.45rem;margin:.15rem 0 .7rem}
+.u-body p{color:var(--muted);margin:.55rem 0}
+.formula{display:inline-block;margin:.3rem .35rem .3rem 0;padding:.55rem .7rem;background:var(--panel-alt);border:1px dashed var(--line);border-radius:6px;font-family:var(--mono);color:var(--text)}
+.quiz{margin-top:2.4rem;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:1.7rem}
+.quiz-top{display:flex;justify-content:space-between;gap:1rem;align-items:center;color:var(--muted);font-family:var(--mono);font-size:.72rem}
+.qbar{height:7px;background:var(--panel-alt);border:1px solid var(--line);border-radius:5px;overflow:hidden;margin:1rem 0 1.5rem}
+.qfill{height:100%;width:0;background:linear-gradient(90deg,var(--low),var(--high));transition:width .3s}
+.qtext{font-size:1.15rem;font-weight:600;margin-bottom:1rem}
+.option{display:block;width:100%;text-align:left;background:var(--panel-alt);border:1px solid var(--line);color:var(--text);padding:.8rem;border-radius:7px;margin:.45rem 0;cursor:pointer}
+.option:hover{border-color:var(--low)}
+.option.correct{border-color:#7fd858;background:var(--electric-dim)}
+.option.wrong{border-color:var(--high);background:var(--high-dim)}
+.option:disabled{cursor:default}
+.feedback{min-height:1.5rem;color:var(--muted);font-family:var(--mono);font-size:.76rem;margin:1rem 0}
+.quiz-btn{background:var(--low);border:0;color:#081018;font-weight:700;padding:.65rem .9rem;border-radius:6px;cursor:pointer}
+.quiz-btn:disabled{opacity:.35;cursor:not-allowed}
+.result{display:none;text-align:center;padding:1.2rem 0}
+.result-score{font-family:var(--display);font-size:3.2rem;color:var(--low)}
+@media(max-width:900px){.unit-wrap{max-width:none}}
+</style>
+</head>
+<body>
+<div class="rail" aria-hidden="true"><svg id="railSvg" preserveAspectRatio="none"></svg></div>
+<header class="topbar"><div class="topbar-inner">
+<div class="brand"><span class="brand-mark">⛭</span><div class="brand-text"><span class="brand-line1">FIELDCRAFT</span><span class="brand-line2">manual de campo · HVACR</span></div></div>
+<div class="progress-wrap"><a href="index.html" style="color:var(--muted);text-decoration:none;font-family:var(--mono);font-size:.72rem">← AHR 110</a></div>
+</div></header>
+<div class="layout">
+<nav class="sidenav">
+<div class="sidenav-course"><strong>UNIT 1</strong>Heat, Temperature, and Pressure</div>
+<a class="unit1-menu" href="index.html"><span class="u-num">AHR</span><span>Voltar à página principal</span><span class="u-arrow">→</span></a>
+<div class="sidenav-search"><input id="unitSearch" type="search" placeholder="Buscar na Unit 1…"></div>
+<nav class="unit-nav" id="unitNav"></nav>
+</nav>
+<main class="content"><div class="unit-wrap">
+<section class="unit-hero"><div class="unit-eyebrow">UNIT 1 · STUDY GUIDE</div><h1 class="unit-title">Heat, Temperature, and Pressure</h1><p class="unit-sub">Summary by topic · 1.1–1.13</p><div class="unit-nav" id="unitNavTop"></div></section>
+<section id="unitTopics"><article class="u-topic" id="unit-1-1"><div class="u-num">1.1</div><h2>Temperature</h2><div class="u-body"><p>Definition: Measures the level or intensity of heat, not the total heat content.</p><p>Cold: The absence of heat.</p><p>Standard boiling/freezing points: water freezes at 32°F (0°C) and boils at 212°F (100°C) at sea-level atmospheric pressure.</p><p>Absolute zero: -460°F (-273°C), the theoretical point where all molecular motion ceases and no heat remains.</p><p>Temperature scales: Fahrenheit (°F), Celsius (°C), Rankine (°R), and Kelvin (K).</p></div></article>
+<article class="u-topic" id="unit-1-2"><div class="u-num">1.2</div><h2>Temperature Conversion Formulas</h2><div class="u-body"><p>Celsius to Fahrenheit: °F = (1.8 × °C) + 32</p><p>Fahrenheit to Celsius: °C = (°F − 32) ÷ 1.8</p><p>Absolute temperature: Rankine = °F + 460; Kelvin = °C + 273.</p></div></article>
+<article class="u-topic" id="unit-1-3"><div class="u-num">1.3</div><h2>Introduction to Heat</h2><div class="u-body"><p>Heat is a form of energy that cannot be created or destroyed, only transformed (First Law of Thermodynamics).</p><p>Heat naturally flows from a warmer substance to a cooler substance.</p><p>British Thermal Unit (Btu): heat required to raise 1 pound of water by 1°F.</p></div></article>
+<article class="u-topic" id="unit-1-4"><div class="u-num">1.4</div><h2>Heat Transfer Mechanisms</h2><div class="u-body"><p>Conduction: heat transfer from molecule to molecule through direct physical contact.</p><p>Convection: heat transfer via a moving fluid medium (liquid or gas), natural or forced.</p><p>Radiation: heat transfer through electromagnetic waves traveling through space.</p></div></article>
+<article class="u-topic" id="unit-1-5"><div class="u-num">1.5</div><h2>Sensible Heat</h2><div class="u-body"><p>Heat added or removed that causes a temperature change without changing the state of matter.</p><p>Easily measured using a standard thermometer.</p></div></article>
+<article class="u-topic" id="unit-1-6"><div class="u-num">1.6</div><h2>Latent Heat</h2><div class="u-body"><p>Heat added or removed that causes a change of state without any change in temperature (“hidden heat”).</p><p>Latent heat of vaporization: 970 Btu/lb for water at 212°F.</p><p>Latent heat of condensation: heat removed to change vapor back to liquid.</p><p>Latent heat of fusion: 144 Btu/lb for ice/water at 32°F.</p></div></article>
+<article class="u-topic" id="unit-1-7"><div class="u-num">1.7</div><h2>Specific Heat</h2><div class="u-body"><p>Number of Btus needed to raise 1 pound of a substance by 1°F.</p><p>Water has a specific heat of 1.0 Btu/lb/°F.</p><p>Sensible heat formula: Q = W × c × ΔT.</p></div></article>
+<article class="u-topic" id="unit-1-8"><div class="u-num">1.8</div><h2>Total Heat (Enthalpy)</h2><div class="u-body"><p>Total heat content contained in a substance, combining sensible heat and latent heat.</p><p>Used in HVACR to calculate required system capacity for cooling and dehumidification.</p></div></article>
+<article class="u-topic" id="unit-1-9"><div class="u-num">1.9</div><h2>Atmospheric Pressure</h2><div class="u-body"><p>Sea-level standard: 14.696 psia or 29.92 in. Hg at standard atmospheric conditions.</p><p>Atmospheric pressure decreases with higher altitude, lowering the boiling point of liquids.</p></div></article>
+<article class="u-topic" id="unit-1-10"><div class="u-num">1.10</div><h2>Gauge Pressure (psig) vs. Absolute Pressure (psia)</h2><div class="u-body"><p>psig (Gauge Pressure): reads zero under normal atmospheric pressure.</p><p>psia (Absolute Pressure): includes atmospheric pressure.</p><p>Conversions: psia = psig + 14.7; psig = psia − 14.7.</p></div></article>
+<article class="u-topic" id="unit-1-11"><div class="u-num">1.11</div><h2>Vacuum and Inches of Mercury (in. Hg)</h2><div class="u-body"><p>Pressures below atmospheric are measured in inches of mercury (in. Hg) or microns for deep vacuums.</p><p>Formula: psia = (30 − vacuum in. Hg) ÷ 2.</p></div></article>
+<article class="u-topic" id="unit-1-12"><div class="u-num">1.12</div><h2>Pressure-Temperature Relationship</h2><div class="u-body"><p>Under a constant pressure, a liquid boils at a specific temperature.</p><p>Increasing pressure raises the boiling point; lowering pressure lowers the boiling point.</p></div></article>
+<article class="u-topic" id="unit-1-13"><div class="u-num">1.13</div><h2>HVACR System Pressure Measuring Instruments</h2><div class="u-body"><p>Bourdon Tube Gauge: mechanical gauge utilizing a curved brass tube that straightens under pressure.</p><p>Compound Gauge: measures pressure (psig) above atmospheric and vacuum (in. Hg) below atmospheric.</p><p>Digital Gauges & Micron Gauges: high-precision instruments used to measure deep vacuums during system evacuation.</p></div></article></section>
+<section class="quiz" id="quiz">
+<div class="unit-eyebrow">KNOWLEDGE CHECK</div><h2 style="font-family:var(--display);font-size:1.7rem;margin:.3rem 0">UNIT 1 · 25 Questions</h2>
+<div class="quiz-top"><span id="qCount">Question 1 of 25</span><span id="score">Score: 0/25</span></div>
+<div class="qbar"><div class="qfill" id="qFill"></div></div>
+<div id="questionBox"></div><div id="feedback" class="feedback"></div>
+<button class="quiz-btn" id="nextBtn" disabled>Next question →</button>
+<div class="result" id="result"><div class="result-score" id="finalScore"></div><p id="resultText"></p><button class="quiz-btn" id="restartBtn">Restart quiz</button></div>
+</section>
+<footer class="page-footer"><p>UNIT 1 — Heat, Temperature, and Pressure · Fieldcraft AHR 110.</p></footer>
+</div></main></div>
+<script>
+const questions=[{"id": 1, "question": "Temperature is defined as:", "options": ["A. heat content.", "B. the level of heat.", "C. the British thermal unit.", "D. the absence of cold."], "answer": "B"}, {"id": 2, "question": "The standard conditions for water to boil at 212°F are:", "options": ["A. an atmospheric pressure of 14.696 psig, or 29.92 in. Hg.", "B. an atmospheric pressure of 0 psia, or 29.99 in. Hg.", "C. an atmospheric pressure of 0 psig, or 0.92 in. Hg.", "D. an atmospheric pressure of 14.696 psia, or 29.92 in. Hg."], "answer": "D"}, {"id": 3, "question": "Fahrenheit, Celsius, Rankine, and Kelvin are:", "options": ["A. temperature scales.", "B. pressure scales.", "C. Btu measurements.", "D. heat transfer methods."], "answer": "A"}, {"id": 4, "question": "Under standard conditions, water freezes at:", "options": ["A. 0°C.", "B. 10°C.", "C. 20°C.", "D. 32°C."], "answer": "D"}, {"id": 5, "question": "Molecular motion stops at:", "options": ["A. 212°F.", "B. -32°F.", "C. -460°F.", "D. 0°F."], "answer": "C"}, {"id": 6, "question": "One British thermal unit (Btu) will raise the temperature of:", "options": ["A. 1 gallon of water 1°F.", "B. 1 pound of water 1°F.", "C. 1 pound of water 1°K.", "D. 1 gallon of water 1°C."], "answer": "B"}, {"id": 7, "question": "In which direction does heat flow?", "options": ["A. From a cold substance to a cold substance", "B. From a cold substance to a warm substance", "C. From a warm substance to a warmer substance", "D. From a warm substance to a cold substance"], "answer": "D"}, {"id": 8, "question": "Heat transfer from molecule to molecule is known as:", "options": ["A. radiation.", "B. convection.", "C. conduction.", "D. evaporation."], "answer": "C"}, {"id": 9, "question": "An increase in sensible heat causes:", "options": ["A. a higher thermometer reading.", "B. a lower thermometer reading.", "C. no change of the thermometer reading.", "D. ice to melt."], "answer": "A"}, {"id": 10, "question": "Latent heat causes:", "options": ["A. a higher thermometer reading.", "B. temperature to rise.", "C. a change of state.", "D. temperature to fall."], "answer": "C"}, {"id": 11, "question": "Heat that is transferred by moving in a medium such as air or water is known as:", "options": ["A. radiation.", "B. convection.", "C. conduction.", "D. evaporation."], "answer": "B"}, {"id": 12, "question": "Heat that is transferred through space without heating the space and heats the first solid object it strikes is known as:", "options": ["A. radiation.", "B. convection.", "C. conduction.", "D. evaporation."], "answer": "A"}, {"id": 13, "question": "Atmospheric pressure at sea level under standard conditions is _____ in. Hg or _____ psia.", "options": ["A. 14.696 in. Hg / 29.92 psia", "B. 29.92 in. Hg / 14.696 psia", "C. 0 in. Hg / 14.7 psia", "D. 29.92 in. Hg / 0 psia"], "answer": "B"}, {"id": 14, "question": "To convert temperature from Celsius to Fahrenheit, use the formula:", "options": ["A. °F = (1.8 x °C) + 32", "B. °F = (°C - 32) / 1.8", "C. °F = (1.8 x °C) - 32", "D. °F = °C + 273"], "answer": "A"}, {"id": 15, "question": "To convert temperature from Fahrenheit to Celsius, use the formula:", "options": ["A. °C = (1.8 x °F) + 32", "B. °C = (°F - 32) / 1.8", "C. °C = (°F + 32) x 1.8", "D. °C = °F - 460"], "answer": "B"}, {"id": 16, "question": "To change from psig to psia, you must:", "options": ["A. add 29.92 to psig.", "B. add 14.696 to psig.", "C. subtract 0.925 from psig.", "D. subtract 3.1416 from psig."], "answer": "B"}, {"id": 17, "question": "To change from psia to psig, you must:", "options": ["A. add 29.92 to psia.", "B. subtract 14.696 from psia.", "C. add 14.696 to psia.", "D. multiply psia by 14.696."], "answer": "B"}, {"id": 18, "question": "10 in. Hg is equivalent to approximately:", "options": ["A. 10 psia.", "B. 20 psia.", "C. 25 psia.", "D. 30 psia."], "answer": "A"}, {"id": 19, "question": "2 psia is equivalent to approximately:", "options": ["A. 29 in. Hg vacuum.", "B. 28 in. Hg vacuum.", "C. 27 in. Hg vacuum.", "D. 26 in. Hg vacuum."], "answer": "D"}, {"id": 20, "question": "125 psig is equivalent to:", "options": ["A. 14.696 psia.", "B. 135 psia.", "C. 139.7 psia.", "D. 147.7 psia."], "answer": "C"}, {"id": 21, "question": "A barometer is used to measure:", "options": ["A. atmospheric pressure.", "B. gauge pressure.", "C. absolute pressure.", "D. stratospheric pressure."], "answer": "A"}, {"id": 22, "question": "What size heater is required to heat 20,000 gallons of pool water from 70°F to 72°F in 1 hour (100% efficiency)?", "options": ["A. 166,000 Btu/h", "B. 332,000 Btu/h", "C. 86,000 Btu/h", "D. 400,000 Btu/h"], "answer": "B"}, {"id": 23, "question": "How many Btus are required to change 1 lb of ice at 20°F to steam at 220°F?", "options": ["A. 1,000 Btu", "B. 1,180 Btu", "C. 1,304 Btu", "D. 1,440 Btu"], "answer": "C"}, {"id": 24, "question": "Which mode of heat transfer involves molecular motion in a fluid medium?", "options": ["A. Conduction", "B. Convection", "C. Radiation", "D. Fusion"], "answer": "B"}, {"id": 25, "question": "What is the key difference between sensible heat and latent heat?", "options": ["A. Sensible heat changes state; latent heat changes temperature.", "B. Sensible heat can be measured with a thermometer; latent heat changes state without changing temperature.", "C. Sensible heat only applies to liquids; latent heat applies to gases.", "D. There is no difference."], "answer": "B"}];
+const nav=document.getElementById('unitNav'), navTop=document.getElementById('unitNavTop');
+const topics=[...document.querySelectorAll('.u-topic')];
+topics.forEach(t=>{const a=document.createElement('a');a.href='#'+t.id;a.textContent=t.querySelector('.u-num').textContent;nav.appendChild(a);navTop.appendChild(a.cloneNode(true));});
+document.getElementById('unitSearch').addEventListener('input',e=>{
+ const q=e.target.value.toLowerCase().trim();
+ topics.forEach(t=>t.style.display=!q||t.textContent.toLowerCase().includes(q)?'':'none');
+});
+let i=0,score=0,answered=false;
+const box=document.getElementById('questionBox'), feedback=document.getElementById('feedback'), next=document.getElementById('nextBtn');
+function render(){
+ const q=questions[i]; answered=false; feedback.textContent=''; next.disabled=true;
+ document.getElementById('qCount').textContent=`Question ${i+1} of ${questions.length}`;
+ document.getElementById('score').textContent=`Score: ${score}/${questions.length}`;
+ document.getElementById('qFill').style.width=`${(i/questions.length)*100}%`;
+ box.innerHTML=`<div class="qtext">${q.question}</div>`+q.options.map(o=>`<button class="option" data-a="${o[0]}">${o}</button>`).join('');
+ box.querySelectorAll('.option').forEach(b=>b.addEventListener('click',()=>answer(b,q)));
+ next.textContent=i===questions.length-1?'Finish quiz':'Next question →';
+}
+function answer(btn,q){
+ if(answered)return;answered=true;
+ const ok=btn.dataset.a===q.answer;if(ok)score++;
+ box.querySelectorAll('.option').forEach(b=>{b.disabled=true;if(b.dataset.a===q.answer)b.classList.add('correct')});
+ if(!ok)btn.classList.add('wrong');
+ feedback.textContent=ok?'✓ Correct!':`✕ Incorrect. Correct answer: ${q.answer}`;
+ document.getElementById('score').textContent=`Score: ${score}/${questions.length}`;
+ document.getElementById('qFill').style.width=`${((i+1)/questions.length)*100}%`;
+ next.disabled=false;
+}
+next.addEventListener('click',()=>{if(i<questions.length-1){i++;render()}else finish()});
+function finish(){
+ box.style.display='none';feedback.style.display='none';next.style.display='none';
+ document.getElementById('result').style.display='block';document.getElementById('finalScore').textContent=`${score}/${questions.length} · ${Math.round(score/questions.length*100)}%`;
+ document.getElementById('resultText').textContent='Quiz complete. Review the topics and try again to improve your score.';
+}
+document.getElementById('restartBtn').addEventListener('click',()=>{i=0;score=0;box.style.display='block';feedback.style.display='block';next.style.display='inline-block';document.getElementById('result').style.display='none';render()});
+render();
+</script>
+</body></html>
