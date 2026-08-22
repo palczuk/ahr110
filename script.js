@@ -2,10 +2,12 @@ const LANG_KEY = 'fieldcraft-lang';
 
 const i18n = {
   pt: {
-    'brand.tagline': 'manual de campo · HVACR',
+    'brand.tagline': 'Josimar Palczuk · HVACR',
     'nav.heading': 'UNIDADES DO LIVRO',
     'nav.sub': 'Refrigeration & Air Conditioning Technology',
     'nav.companionTitle': 'AHR 110 · Companion do curso',
+    'companion.eyebrow': 'Material complementar',
+    'companion.sub': 'Resumo aprofundado dos itens 2–11 do syllabus da disciplina — evaporadores, compressores, manifold, evacuação, carga, recuperação, tubulação, elétrica e prep para o EPA 608.',
     'hero.eyebrow': 'Base de estudos HVACR',
     'hero.title': 'O ciclo que move<br>todo o resto.',
     'hero.sub': 'Quatro componentes, um circuito fechado, duas pressões. Entenda o ciclo de refrigeração antes de entrar em qualquer unidade do livro.',
@@ -13,7 +15,7 @@ const i18n = {
     'cycle.sub': 'Toque em cada componente para ver sua função no ciclo.',
     'cycle.hint': '↑ Escolha um componente acima para ver a explicação aqui.',
     'footer.line1': 'Base de estudos pessoal para o programa de HVACR — Fayetteville Technical Community College.',
-    'footer.line2': 'Fieldcraft — material de estudo pessoal, não substitui o syllabus oficial da instituição.',
+    'footer.line2': 'Josimar Palczuk — material de estudo pessoal, não substitui o syllabus oficial da instituição.',
     'badge.available': 'disponível',
     'badge.planned': 'em breve',
     'cycle.evaporator.name': 'Evaporador',
@@ -30,10 +32,12 @@ const i18n = {
     'cycle.valve.text': 'O dispositivo de expansão (válvula termostática ou tubo capilar) restringe o fluxo do líquido de alta pressão, causando uma queda brusca de pressão. Esse líquido de baixa pressão entra no evaporador pronto para ferver novamente, fechando o ciclo.'
   },
   en: {
-    'brand.tagline': 'field manual · HVACR',
+    'brand.tagline': 'Josimar Palczuk · HVACR',
     'nav.heading': 'BOOK UNITS',
     'nav.sub': 'Refrigeration & Air Conditioning Technology',
     'nav.companionTitle': 'AHR 110 · Course Companion',
+    'companion.eyebrow': 'Companion material',
+    'companion.sub': 'In-depth summary of syllabus items 2–11 — evaporators, compressors, manifold gauges, evacuation, charging, recovery, tubing, electrical, and EPA 608 prep.',
     'hero.eyebrow': 'HVACR study base',
     'hero.title': 'The cycle that drives<br>everything else.',
     'hero.sub': 'Four components, one closed loop, two pressures. Understand the refrigeration cycle before diving into any unit in the book.',
@@ -41,7 +45,7 @@ const i18n = {
     'cycle.sub': 'Tap each component to see its role in the cycle.',
     'cycle.hint': '↑ Pick a component above to see the explanation here.',
     'footer.line1': 'Personal study base for the HVACR program — Fayetteville Technical Community College.',
-    'footer.line2': 'Fieldcraft — personal study material, does not replace the institution\u2019s official syllabus.',
+    'footer.line2': 'Josimar Palczuk — personal study material, does not replace the institution\u2019s official syllabus.',
     'badge.available': 'available',
     'badge.planned': 'coming soon',
     'cycle.evaporator.name': 'Evaporator',
@@ -151,7 +155,8 @@ function renderUnits(data){
     wrap.appendChild(block);
   });
 
-  document.getElementById('unitsNote').textContent = data.note[currentLang];
+  const noteEl = document.getElementById('unitsNote');
+  if(noteEl) noteEl.textContent = data.note[currentLang];
 }
 
 function loadUnits(){
