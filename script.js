@@ -2,7 +2,7 @@ const LANG_KEY = 'fieldcraft-lang';
 
 const i18n = {
   pt: {
-    'brand.tagline': 'Josimar Palczuk · HVACR',
+    'brand.tagline': 'manual de campo · HVACR',
     'nav.heading': 'UNIDADES DO LIVRO',
     'nav.sub': 'Refrigeration & Air Conditioning Technology',
     'nav.companionTitle': 'AHR 110 · Companion do curso',
@@ -15,7 +15,7 @@ const i18n = {
     'cycle.sub': 'Toque em cada componente para ver sua função no ciclo.',
     'cycle.hint': '↑ Escolha um componente acima para ver a explicação aqui.',
     'footer.line1': 'Base de estudos pessoal para o programa de HVACR — Fayetteville Technical Community College.',
-    'footer.line2': 'Josimar Palczuk — material de estudo pessoal, não substitui o syllabus oficial da instituição.',
+    'footer.line2': 'Fieldcraft — material de estudo pessoal, não substitui o syllabus oficial da instituição.',
     'badge.available': 'disponível',
     'badge.planned': 'em breve',
     'cycle.evaporator.name': 'Evaporador',
@@ -32,7 +32,7 @@ const i18n = {
     'cycle.valve.text': 'O dispositivo de expansão (válvula termostática ou tubo capilar) restringe o fluxo do líquido de alta pressão, causando uma queda brusca de pressão. Esse líquido de baixa pressão entra no evaporador pronto para ferver novamente, fechando o ciclo.'
   },
   en: {
-    'brand.tagline': 'Josimar Palczuk · HVACR',
+    'brand.tagline': 'field manual · HVACR',
     'nav.heading': 'BOOK UNITS',
     'nav.sub': 'Refrigeration & Air Conditioning Technology',
     'nav.companionTitle': 'AHR 110 · Course Companion',
@@ -45,7 +45,7 @@ const i18n = {
     'cycle.sub': 'Tap each component to see its role in the cycle.',
     'cycle.hint': '↑ Pick a component above to see the explanation here.',
     'footer.line1': 'Personal study base for the HVACR program — Fayetteville Technical Community College.',
-    'footer.line2': 'Josimar Palczuk — personal study material, does not replace the institution\u2019s official syllabus.',
+    'footer.line2': 'Fieldcraft — personal study material, does not replace the institution\u2019s official syllabus.',
     'badge.available': 'available',
     'badge.planned': 'coming soon',
     'cycle.evaporator.name': 'Evaporator',

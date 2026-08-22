@@ -73,14 +73,21 @@ a.unit-row:hover{background:var(--panel); border-left-color:var(--low);}
 .unit-row:not(.is-planned) .unit-badge{background:var(--low-dim); color:var(--low); border-color:var(--low);}
 
 .sidenav-divider{height:1px; background:var(--line); margin:1.2rem 0;}
-.companion-link{
-  display:flex; align-items:center; justify-content:space-between; gap:.5rem;
-  background:var(--panel); border:1px solid var(--line); border-radius:8px;
-  padding:.7rem .8rem; text-decoration:none; color:var(--text); font-size:.85rem;
-  transition:border-color .15s;
+.companion-section{margin-bottom:2.6rem;}
+.companion-card{
+  display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
+  background:var(--panel); border:1px solid var(--line); border-radius:12px;
+  padding:1.4rem 1.7rem; text-decoration:none; color:var(--text);
+  transition:border-color .15s, transform .15s;
 }
-.companion-link:hover{border-color:var(--low);}
-.companion-arrow{color:var(--low);}
+.companion-card:hover{border-color:var(--low); transform:translateY(-1px);}
+.companion-card-eyebrow{
+  font-family:var(--mono); font-size:.7rem; color:var(--low); letter-spacing:.06em;
+  text-transform:uppercase; margin:0 0 .3rem;
+}
+.companion-card-title{font-family:var(--display); font-weight:600; font-size:1.15rem; margin:0 0 .4rem;}
+.companion-card-sub{color:var(--muted); font-size:.85rem; margin:0; max-width:60ch;}
+.companion-arrow{color:var(--low); font-size:1.3rem; flex-shrink:0;}
 .sidenav-note{font-family:var(--mono); font-size:.66rem; color:var(--muted); line-height:1.6; margin-top:1rem;}
 
 /* ---------- Content / Hero ---------- */
@@ -145,4 +152,5 @@ a.unit-row:hover{background:var(--panel); border-left-color:var(--low);}
   .topbar-inner{gap:.8rem;}
   .cycle-node{width:96px; padding:.55rem .6rem; font-size:.74rem;}
   .node-gauge{width:18px; height:18px;}
+  .companion-card{flex-direction:column; align-items:flex-start; gap:.8rem;}
 }
