@@ -16,19 +16,19 @@
 .chip.safety{background:var(--amber-dim,#4a3419); border-color:var(--amber,#f0a63a); color:var(--amber,#f0a63a);}
 
 /* ---------- Summary sections ---------- */
-.unit-section{
+.summary-block{
   background:var(--panel); border:1px solid var(--line); border-radius:12px;
   padding:1.6rem 1.8rem 1.5rem; margin-top:1.2rem;
 }
-.unit-section-id{
+.summary-section-id{
   font-family:var(--mono); font-size:.7rem; color:var(--low); letter-spacing:.06em;
   text-transform:uppercase; margin:0 0 .3rem;
 }
-.unit-section-title{
+.summary-section-title{
   font-family:var(--display); font-weight:600; font-size:1.3rem; margin:0 0 .8rem; line-height:1.25;
 }
-.unit-section-text{color:var(--text); margin:0 0 1.1rem; max-width:78ch;}
-.unit-section-text:last-child{margin-bottom:0;}
+.summary-section-text{color:var(--text); margin:0 0 1.1rem; max-width:78ch;}
+.summary-section-text:last-child{margin-bottom:0;}
 
 .values-table{width:100%; border-collapse:collapse; font-family:var(--mono); font-size:.82rem; margin-top:.4rem;}
 .values-table tr{border-bottom:1px solid var(--line);}
