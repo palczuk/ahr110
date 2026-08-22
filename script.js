@@ -154,10 +154,8 @@ function renderUnits(data){
   document.getElementById('unitsNote').textContent = data.note[currentLang];
 }
 
-async function loadUnits(){
-  const res = await fetch('units.json');
-  const data = await res.json();
-  renderUnits(data);
+function loadUnits(){
+  renderUnits(UNITS_DATA);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

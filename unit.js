@@ -24,9 +24,8 @@ let unitData = null;
 let quizState = {}; // { qId: { picked, correct } }
 let quizIndex = 0; // current question index in the stepper
 
-async function loadUnitData(){
-  const res = await fetch('unit1-data.json');
-  unitData = await res.json();
+function loadUnitData(){
+  unitData = UNIT1_DATA;
   renderUnitPage();
 }
 
