@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="unit.css">
 </head>
 <body>
- 
+
 <header class="topbar">
   <div class="topbar-inner">
     <a href="index.html" class="brand" style="text-decoration:none;">
@@ -26,7 +26,7 @@
     </div>
   </div>
 </header>
- 
+
 <div class="layout">
   <nav class="sidenav" aria-label="Book units">
     <a href="index.html" class="back-link" data-i18n="unit.backHome">← Voltar à página inicial</a>
@@ -34,40 +34,42 @@
     <p class="sidenav-sub" data-i18n="nav.sub">Refrigeration & Air Conditioning Technology</p>
     <div id="unitsWrap"></div>
   </nav>
- 
+
   <main class="content">
     <section class="unit-hero">
       <p class="hero-eyebrow" id="unitEyebrow"></p>
       <h1 class="hero-title" id="unitTitle"></h1>
       <p class="hero-sub" id="unitSubtitle"></p>
     </section>
- 
+
     <section class="unit-block">
       <h2 class="section-title" data-i18n="unit.safety.title">Segurança primeiro</h2>
       <div class="chip-row" id="safetyChips"></div>
     </section>
- 
+
     <section class="unit-block" id="summarySections">
       <h2 class="section-title" data-i18n="unit.summary.title">Resumo</h2>
     </section>
- 
+
     <section class="unit-block">
       <div class="quiz-header">
         <h2 class="section-title" data-i18n="unit.quiz.title">Quiz</h2>
         <p class="section-sub" data-i18n="unit.quiz.sub">Baseado nas perguntas de revisão da Unidade 1 do livro-texto.</p>
       </div>
-      <div class="quiz-score" id="quizScore"></div>
+      <div class="quiz-progress-row">
+        <div class="quiz-score" id="quizScore"></div>
+        <div class="quiz-progress-track"><div class="quiz-progress-fill" id="quizProgressFill"></div></div>
+      </div>
       <div id="quizList"></div>
     </section>
- 
+
     <footer class="page-footer">
       <p class="page-footer-small" data-i18n="footer.line2">Fieldcraft — material de estudo pessoal, não substitui o syllabus oficial da instituição.</p>
     </footer>
   </main>
 </div>
- 
+
 <script src="script.js"></script>
 <script src="unit.js"></script>
 </body>
 </html>
- 

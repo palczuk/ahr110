@@ -21,7 +21,8 @@ Object.assign(i18n.en, {
 });
 
 let unitData = null;
-let quizState = {}; // { qId: 'correct' | 'incorrect' }
+let quizState = {}; // { qId: { picked, correct } }
+let quizIndex = 0; // current question index in the stepper
 
 async function loadUnitData(){
   const res = await fetch('unit1-data.json');
@@ -67,35 +68,74 @@ function renderUnitPage(){
 }
 
 function renderQuiz(){
+  const total = unitData.quiz.length;
+  if(quizIndex >= total){
+    renderQuizSummary();
+  } else {
+    renderQuizQuestion(quizIndex);
+  }
+  updateScoreUI();
+}
+
+function renderQuizQuestion(index){
   const lang = currentLang;
+  const q = unitData.quiz[index];
+  const total = unitData.quiz.length;
   const wrap = document.getElementById('quizList');
-  wrap.innerHTML = '';
 
-  unitData.quiz.forEach(q => {
-    const item = document.createElement('div');
-    item.className = 'quiz-item';
-    item.setAttribute('data-qid', q.id);
+  const optionsHTML = q.options.map(opt => `
+    <button class="quiz-option" data-value="${opt.id}">${opt.text[lang]}</button>
+  `).join('');
 
-    const optionsHTML = q.options.map(opt => `
-      <button class="quiz-option" data-value="${opt.id}">${opt.text[lang]}</button>
-    `).join('');
-
-    item.innerHTML = `
+  wrap.innerHTML = `
+    <div class="quiz-item" data-qid="${q.id}">
+      <p class="quiz-step-label">${currentLang === 'pt' ? 'Pergunta' : 'Question'} ${index + 1} / ${total}</p>
       <p class="quiz-question">${q.prompt[lang]}</p>
       <div class="quiz-options">${optionsHTML}</div>
       <p class="quiz-feedback"></p>
-    `;
-    wrap.appendChild(item);
+      <div class="quiz-nav">
+        <button class="quiz-next-btn" id="quizNextBtn" disabled>${index === total - 1 ? (currentLang === 'pt' ? 'Ver resultado →' : 'See results →') : (currentLang === 'pt' ? 'Próxima →' : 'Next →')}</button>
+      </div>
+    </div>
+  `;
 
-    // Restore answered state if already answered
-    const state = quizState[q.id];
-    if(state){
-      applyQuizAnswerUI(item, q, state.picked, lang);
-    }
+  const item = wrap.querySelector('.quiz-item');
+  const state = quizState[q.id];
+  if(state){
+    applyQuizAnswerUI(item, q, state.picked, lang);
+    document.getElementById('quizNextBtn').disabled = false;
+  }
+
+  bindQuizOptions(item, q);
+  document.getElementById('quizNextBtn').addEventListener('click', () => {
+    quizIndex++;
+    renderQuiz();
+    document.getElementById('quizList').scrollIntoView({ behavior:'smooth', block:'start' });
   });
 
-  updateScoreUI();
-  bindQuizOptions();
+  updateProgressBar(index, total);
+}
+
+function renderQuizSummary(){
+  const total = unitData.quiz.length;
+  const correct = Object.values(quizState).filter(s => s.correct).length;
+  const wrap = document.getElementById('quizList');
+  const pt = currentLang === 'pt';
+  wrap.innerHTML = `
+    <div class="quiz-item quiz-summary">
+      <p class="quiz-step-label">${pt ? 'Resultado final' : 'Final result'}</p>
+      <h3 class="quiz-summary-score">${correct} / ${total}</h3>
+      <p class="quiz-summary-text">${pt ? 'Refaça o quiz quantas vezes quiser — nada fica salvo, é só treino.' : 'Retake the quiz as many times as you like — nothing is saved, it\u2019s just practice.'}</p>
+      <button class="quiz-next-btn" id="quizRestartBtn">${pt ? '↺ Refazer quiz' : '↺ Retake quiz'}</button>
+    </div>
+  `;
+  document.getElementById('quizRestartBtn').addEventListener('click', () => {
+    quizState = {};
+    quizIndex = 0;
+    renderQuiz();
+    document.getElementById('quizList').scrollIntoView({ behavior:'smooth', block:'start' });
+  });
+  updateProgressBar(total, total);
 }
 
 function applyQuizAnswerUI(item, q, picked, lang){
@@ -109,20 +149,23 @@ function applyQuizAnswerUI(item, q, picked, lang){
   feedback.textContent = `${t(isCorrect ? 'quiz.correct' : 'quiz.incorrect')} ${q.explanation[lang]}`;
 }
 
-function bindQuizOptions(){
-  document.querySelectorAll('.quiz-item').forEach(item => {
-    const qId = item.getAttribute('data-qid');
-    const q = unitData.quiz.find(x => x.id === qId);
-    item.querySelectorAll('.quiz-option').forEach(opt => {
-      opt.addEventListener('click', () => {
-        if(quizState[qId]) return; // already answered
-        const picked = opt.getAttribute('data-value');
-        quizState[qId] = { picked, correct: picked === q.correct };
-        applyQuizAnswerUI(item, q, picked, currentLang);
-        updateScoreUI();
-      });
+function bindQuizOptions(item, q){
+  item.querySelectorAll('.quiz-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      if(quizState[q.id]) return; // already answered
+      const picked = opt.getAttribute('data-value');
+      quizState[q.id] = { picked, correct: picked === q.correct };
+      applyQuizAnswerUI(item, q, picked, currentLang);
+      updateScoreUI();
+      const nextBtn = document.getElementById('quizNextBtn');
+      if(nextBtn) nextBtn.disabled = false;
     });
   });
+}
+
+function updateProgressBar(index, total){
+  const fill = document.getElementById('quizProgressFill');
+  if(fill) fill.style.width = `${(index / total) * 100}%`;
 }
 
 function updateScoreUI(){
