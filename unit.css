@@ -5,14 +5,45 @@
 .back-link:hover{text-decoration:underline;}
 
 .unit-hero{padding:1.2rem 0 2.2rem; border-bottom:1px solid var(--line); margin-bottom:2.4rem;}
+.unit-block{margin-bottom:2.8rem;}
 
-.unit-block{margin-bottom:2.6rem;}
-
-.todo-card{
-  background:var(--panel); border:1px dashed var(--line); border-radius:10px;
-  padding:1.3rem 1.5rem; color:var(--muted); font-family:var(--mono); font-size:.85rem; line-height:1.6;
+/* ---------- Safety chips ---------- */
+.chip-row{display:flex; flex-wrap:wrap; gap:.5rem;}
+.chip{
+  font-size:.8rem; padding:.4rem .75rem; border-radius:20px;
+  background:var(--panel-alt); border:1px solid var(--line); color:var(--text);
 }
+.chip.safety{background:var(--amber-dim,#4a3419); border-color:var(--amber,#f0a63a); color:var(--amber,#f0a63a);}
 
+/* ---------- Summary sections ---------- */
+.unit-section{
+  background:var(--panel); border:1px solid var(--line); border-radius:12px;
+  padding:1.6rem 1.8rem 1.5rem; margin-top:1.2rem;
+}
+.unit-section-id{
+  font-family:var(--mono); font-size:.7rem; color:var(--low); letter-spacing:.06em;
+  text-transform:uppercase; margin:0 0 .3rem;
+}
+.unit-section-title{
+  font-family:var(--display); font-weight:600; font-size:1.3rem; margin:0 0 .8rem; line-height:1.25;
+}
+.unit-section-text{color:var(--text); margin:0 0 1.1rem; max-width:78ch;}
+.unit-section-text:last-child{margin-bottom:0;}
+
+.values-table{width:100%; border-collapse:collapse; font-family:var(--mono); font-size:.82rem; margin-top:.4rem;}
+.values-table tr{border-bottom:1px solid var(--line);}
+.values-table tr:last-child{border-bottom:none;}
+.values-table td{padding:.45rem .2rem;}
+.values-table td:first-child{color:var(--muted); padding-right:1rem;}
+.values-table td:last-child{color:var(--text); text-align:right; font-weight:500;}
+
+/* ---------- Quiz ---------- */
+.quiz-header{margin-bottom:.6rem;}
+.quiz-score{
+  font-family:var(--mono); font-size:.8rem; color:var(--low);
+  background:var(--panel); border:1px solid var(--line); border-radius:8px;
+  padding:.6rem .9rem; margin-bottom:1.2rem; display:inline-block;
+}
 .quiz-item{
   background:var(--panel); border:1px solid var(--line); border-radius:10px;
   padding:1.3rem 1.4rem; margin-bottom:1rem;
@@ -24,7 +55,7 @@
   padding:.65rem .8rem; border-radius:8px; cursor:pointer; font-family:var(--sans); font-size:.88rem;
   transition:border-color .15s, background .15s;
 }
-.quiz-option:hover{border-color:var(--low);}
+.quiz-option:hover:not(:disabled){border-color:var(--low);}
 .quiz-option.correct{border-color:var(--low); background:var(--low-dim); color:var(--low);}
 .quiz-option.incorrect{border-color:var(--high); background:var(--high-dim); color:var(--high);}
 .quiz-option:disabled{cursor:default;}

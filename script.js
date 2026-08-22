@@ -83,6 +83,7 @@ function applyLanguage(lang){
 
   if(unitsData) renderUnits(unitsData);
   if(activeNode) renderCycleDetail(activeNode);
+  if(typeof renderUnitPage === 'function' && unitData) renderUnitPage();
 }
 
 function bindLangSwitch(){

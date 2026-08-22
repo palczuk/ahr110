@@ -1,16 +1,146 @@
+
+Claude finished the response
+
+Searched the web
+Searched the web
+Ótimo — tenho o sumário real do livro (varia um pouco por edição, mas a estrutura por seção é consistente). Vou usar isso pro menu de unidades.
+
+
+Ran 9 commands, created 7 files, read a file · 6 notes
+Ran 9 commands, created 7 files, read a file · 6 notes
+Pronto. A pasta fieldcraft/ completa (baixe todos os arquivos, mantendo essa estrutura) contém:
+
+fieldcraft/
+├── index.html      ← NOVA página inicial
+├── styles.css
+├── script.js        (i18n + diagrama do ciclo + menu de unidades)
+├── units.json        (lista de unidades do livro — editável)
+├── unit-01.html      (template da Unidade 1 — duplique para as próximas)
+├── unit.css
+├── unit.js
+└── ahr110/            (o módulo AHR 110 que já tínhamos — inalterado)
+O que mudou:
+
+Bilíngue (PT/EN) — botão no topo direito troca todo o texto da interface e o conteúdo da animação do ciclo, com preferência salva no navegador (localStorage).
+Animação do ciclo de refrigeração — diagrama com os 4 componentes (Evaporador, Compressor, Condensador, Válvula de Expansão) ligados por linhas que "fluem" (azul = lado de baixa, vermelho = lado de alta — mesmo código de cor do manifold gauge que já usamos). Clique em qualquer componente pra ver a explicação dele embaixo, nos dois idiomas.
+Menu lateral de Unidades — busquei o sumário real do livro Refrigeration & Air Conditioning Technology (Whitman/Johnson/Tomczyk) e montei o menu com as Unidades 1–22, organizadas por seção (Teoria do Calor, Segurança/Ferramentas, Controles Automáticos, Motores Elétricos, Refrigeração Comercial). Só a Unidade 1 está com link ativo (aponta pro template unit-01.html); as demais aparecem como "em breve" — assim que você criar unit-02.html, unit-03.html etc., basta mudar "status": "planned" pra "available" no units.json que o link liga sozinho.
+Template de unidade (unit-01.html) — já vem com seção de Resumo (bloco vazio pra você preencher) e um Quiz interativo funcional com uma pergunta de exemplo (clica na alternativa, mostra certo/errado). Pra criar a Unidade 2, é só duplicar esse arquivo, renomear e trocar o conteúdo.
+Uma ressalva importante: o módulo AHR 110 (pasta ahr110/) que fizemos antes ficou só em português — traduzir os 10 tópicos inteiros pra inglês também é um trabalho grande à parte. Deixei ele linkado na barra lateral como "Companion do curso" mas não bilíngue por enquanto. Quer que eu faça essa tradução também, ou prefere deixar assim por ora?
+
+
+Index
+Code · HTML 
+
+Styles
+Code · CSS 
+
+Script
+JS 
+
+Units
+Code · JSON 
+
+Unit 01
+Code · HTML 
+
+Unit
+Code · CSS 
+
+Unit
+JS 
+
+Unit 1 Heat, Temperature, and Pressure some imaginary or unknown temperature. This “unknown” temperature varies from one individual to the next, so the terms hot and cold are highly subjective. Consider the situation where the temperature in a particular city has stayed in the 220°F range for
+
+pasted
+
+agora com site pronto.
+use este material
+para criar um resumo digno de um copywriter para cada item e crie o quiz no final para avaliar conhecimento.
+
+esta sera a UNIT 1 linkada no site principal.
+mantenha a mesma formatacao da pagina inial.
+
+tanto em ingles quanto portugues
+ingles standard
+
+
+Thought for 1m 17s
+Thought for 1m 17s
+Perfeito, agora tenho o conteúdo real da Unit 1. Vou montar o resumo completo + quiz, bilíngue, na mesma linha visual do site.
+
+
+Ran a command, edited a file
+Ran a command, edited a file
+Agora o arquivo de dados da Unit 1 — o mais extenso, com todos os resumos e os 25 quizzes derivados das perguntas de revisão do livro (reescritas com minhas próprias palavras).
+
+
+Ran 10 commands, created 4 files, edited a file · 6 notes
+Ran 10 commands, created 4 files, edited a file · 6 notes
+Unit 1 pronta — baixe a pasta fieldcraft/ inteira (já com todos os arquivos, mesma estrutura) e suba pro repo:
+
+fieldcraft/
+├── index.html          ← página inicial (já tinha)
+├── styles.css, script.js
+├── units.json           ← título da Unit 1 atualizado (Heat, Temperature, and Pressure)
+├── unit-01.html          ← agora renderiza dinamicamente do JSON
+├── unit1-data.json        ← todo o conteúdo: resumo + quiz
+├── unit.css, unit.js
+└── ahr110/                (inalterado)
+O que fiz com o material que você mandou:
+
+13 blocos de resumo (1.1 a 1.13), cada um reescrito num tom mais direto/"copywriter" em vez de parafrasear frase a frase — ganchos como o exemplo da piscina, das raquetes de neve, do poste de madeira vs. lataria do carro — mantendo os números e fórmulas exatos do livro (BTU, calor específico, psig/psia, zero absoluto etc.), com uma tabela de "valores-chave" por seção pra consulta rápida.
+Bloco de segurança no topo, com as 5 recomendações do capítulo.
+Quiz com as 25 perguntas de revisão do fim da unidade — reescrevi cada uma com minhas próprias palavras (evitando reproduzir o texto do livro literalmente), calculei e conferi manualmente todas as 25 respostas certas (inclusive as de conversão °F/°C, psig/psia e as duas contas de aquecedor de piscina), com explicação depois de cada resposta e um placar ao vivo ("Pontuação: X/25") no topo do quiz.
+Tudo bilíngue — o toggle PT/EN do topo agora também re-renderiza o conteúdo da Unit 1 inteiro, texto e quiz incluídos, sem perder as respostas já marcadas.
+Um pequeno bônus de continuidade: a seção 1.13 (manômetros) já puxa o gancho pro superaquecimento/sub-resfriamento que você estudou no módulo AHR110 — os dois módulos agora conversam entre si.
+Uma correção que fiz sem perguntar: o título oficial da Unit 1 no livro é "Heat, Temperature, and Pressure" (não só "Heat and Pressure" como eu tinha colocado antes) — já ajustei no units.json e em todo o resto.
+
+Quando você mandar o conteúdo da Unit 2, é só me passar o texto/PDF que eu sigo o mesmo padrão.
+
+
+Unit 01
+Code · HTML 
+
+Unit1 data
+Code · JSON 
+
+Unit
+Code · CSS 
+
+Unit
+JS 
+
+Units
+Code · JSON 
+
+Index
+Code · HTML 
+
+Script
+JS 
+
+Want to be notified when Claude responds?
+
+
+
+
+Claude is AI and can make mistakes. Please double-check responses.
+
+
+Unit 01 · HTML
 <!DOCTYPE html>
 <html lang="pt-BR" id="htmlRoot">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unit 1 — Heat and Pressure · Fieldcraft</title>
+<title>Unit 1 — Heat, Temperature, and Pressure · Fieldcraft</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="unit.css">
 </head>
 <body>
-
+ 
 <header class="topbar">
   <div class="topbar-inner">
     <a href="index.html" class="brand" style="text-decoration:none;">
@@ -26,7 +156,7 @@
     </div>
   </div>
 </header>
-
+ 
 <div class="layout">
   <nav class="sidenav" aria-label="Book units">
     <a href="index.html" class="back-link" data-i18n="unit.backHome">← Voltar à página inicial</a>
@@ -34,43 +164,40 @@
     <p class="sidenav-sub" data-i18n="nav.sub">Refrigeration & Air Conditioning Technology</p>
     <div id="unitsWrap"></div>
   </nav>
-
+ 
   <main class="content">
     <section class="unit-hero">
-      <p class="hero-eyebrow" data-i18n="unit.eyebrow">Unidade 01 · Seção I — Teoria do Calor</p>
-      <h1 class="hero-title" data-i18n="unit.title">Calor e Pressão</h1>
-      <p class="hero-sub" data-i18n="unit.subtitle">Espaço reservado para o resumo desta unidade. Preencha as seções abaixo conforme avança no livro.</p>
+      <p class="hero-eyebrow" id="unitEyebrow"></p>
+      <h1 class="hero-title" id="unitTitle"></h1>
+      <p class="hero-sub" id="unitSubtitle"></p>
     </section>
-
+ 
     <section class="unit-block">
+      <h2 class="section-title" data-i18n="unit.safety.title">Segurança primeiro</h2>
+      <div class="chip-row" id="safetyChips"></div>
+    </section>
+ 
+    <section class="unit-block" id="summarySections">
       <h2 class="section-title" data-i18n="unit.summary.title">Resumo</h2>
-      <div class="todo-card">
-        <p data-i18n="unit.summary.todo">📝 Ainda não preenchido. Substitua este bloco pelos seus próprios resumos: conceitos-chave, fórmulas, tabelas e anotações de aula desta unidade.</p>
-      </div>
     </section>
-
+ 
     <section class="unit-block">
-      <h2 class="section-title" data-i18n="unit.quiz.title">Quiz</h2>
-      <p class="section-sub" data-i18n="unit.quiz.sub">Modelo de pergunta — duplique o bloco <code>.quiz-item</code> no HTML para adicionar mais.</p>
-
-      <div class="quiz-item" data-answer="b">
-        <p class="quiz-question" data-i18n="unit.quiz.q1">1. O que acontece com a temperatura de um refrigerante em ebulição enquanto a pressão permanece constante?</p>
-        <div class="quiz-options">
-          <button class="quiz-option" data-value="a" data-i18n="unit.quiz.q1a">Ela sobe continuamente</button>
-          <button class="quiz-option" data-value="b" data-i18n="unit.quiz.q1b">Ela permanece constante (temperatura de saturação)</button>
-          <button class="quiz-option" data-value="c" data-i18n="unit.quiz.q1c">Ela cai continuamente</button>
-        </div>
-        <p class="quiz-feedback"></p>
+      <div class="quiz-header">
+        <h2 class="section-title" data-i18n="unit.quiz.title">Quiz</h2>
+        <p class="section-sub" data-i18n="unit.quiz.sub">Baseado nas perguntas de revisão da Unidade 1 do livro-texto.</p>
       </div>
+      <div class="quiz-score" id="quizScore"></div>
+      <div id="quizList"></div>
     </section>
-
+ 
     <footer class="page-footer">
       <p class="page-footer-small" data-i18n="footer.line2">Fieldcraft — material de estudo pessoal, não substitui o syllabus oficial da instituição.</p>
     </footer>
   </main>
 </div>
-
+ 
 <script src="script.js"></script>
 <script src="unit.js"></script>
 </body>
 </html>
+ 

@@ -7,7 +7,7 @@
     {
       "title": { "pt": "Seção I — Teoria do Calor", "en": "Section I — Theory of Heat" },
       "units": [
-        { "id": 1, "title": { "pt": "Calor e Pressão", "en": "Heat and Pressure" }, "status": "available", "href": "unit-01.html" },
+        { "id": 1, "title": { "pt": "Calor, Temperatura e Pressão", "en": "Heat, Temperature, and Pressure" }, "status": "available", "href": "unit-01.html" },
         { "id": 2, "title": { "pt": "Matéria e Energia", "en": "Matter and Energy" }, "status": "planned", "href": "unit-02.html" },
         { "id": 3, "title": { "pt": "Refrigeração e Refrigerantes", "en": "Refrigeration and Refrigerants" }, "status": "planned", "href": "unit-03.html" }
       ]

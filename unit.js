@@ -1,53 +1,136 @@
-/* Extends the shared i18n object from script.js with unit-page-only strings. */
+/* Extends the shared i18n object from script.js with unit-page-only chrome strings. */
 Object.assign(i18n.pt, {
   'unit.backHome': '← Voltar à página inicial',
-  'unit.eyebrow': 'Unidade 01 · Seção I — Teoria do Calor',
-  'unit.title': 'Calor e Pressão',
-  'unit.subtitle': 'Espaço reservado para o resumo desta unidade. Preencha as seções abaixo conforme avança no livro.',
+  'unit.safety.title': 'Segurança primeiro',
   'unit.summary.title': 'Resumo',
-  'unit.summary.todo': '📝 Ainda não preenchido. Substitua este bloco pelos seus próprios resumos: conceitos-chave, fórmulas, tabelas e anotações de aula desta unidade.',
   'unit.quiz.title': 'Quiz',
-  'unit.quiz.sub': 'Modelo de pergunta — duplique o bloco .quiz-item no HTML para adicionar mais.',
-  'unit.quiz.q1': '1. O que acontece com a temperatura de um refrigerante em ebulição enquanto a pressão permanece constante?',
-  'unit.quiz.q1a': 'Ela sobe continuamente',
-  'unit.quiz.q1b': 'Ela permanece constante (temperatura de saturação)',
-  'unit.quiz.q1c': 'Ela cai continuamente',
+  'unit.quiz.sub': 'Baseado nas perguntas de revisão da Unidade 1 do livro-texto.',
   'quiz.correct': '✓ Correto.',
-  'quiz.incorrect': '✕ Não é essa. Tente novamente ou revise o resumo acima.'
+  'quiz.incorrect': '✕ Não é essa — a resposta certa está destacada.',
+  'quiz.scoreLabel': 'Pontuação'
 });
 Object.assign(i18n.en, {
   'unit.backHome': '← Back to homepage',
-  'unit.eyebrow': 'Unit 01 · Section I — Theory of Heat',
-  'unit.title': 'Heat and Pressure',
-  'unit.subtitle': 'Placeholder for this unit\u2019s summary. Fill in the sections below as you work through the book.',
+  'unit.safety.title': 'Safety first',
   'unit.summary.title': 'Summary',
-  'unit.summary.todo': '📝 Not filled in yet. Replace this block with your own summaries: key concepts, formulas, tables, and class notes for this unit.',
   'unit.quiz.title': 'Quiz',
-  'unit.quiz.sub': 'Sample question — duplicate the .quiz-item block in the HTML to add more.',
-  'unit.quiz.q1': '1. What happens to a boiling refrigerant\u2019s temperature while pressure stays constant?',
-  'unit.quiz.q1a': 'It keeps rising',
-  'unit.quiz.q1b': 'It stays constant (saturation temperature)',
-  'unit.quiz.q1c': 'It keeps dropping',
+  'unit.quiz.sub': 'Based on the Unit 1 review questions from the textbook.',
   'quiz.correct': '✓ Correct.',
-  'quiz.incorrect': '✕ Not quite. Try again or review the summary above.'
+  'quiz.incorrect': '✕ Not quite — the correct answer is highlighted.',
+  'quiz.scoreLabel': 'Score'
 });
 
-function bindQuiz(){
+let unitData = null;
+let quizState = {}; // { qId: 'correct' | 'incorrect' }
+
+async function loadUnitData(){
+  const res = await fetch('unit1-data.json');
+  unitData = await res.json();
+  renderUnitPage();
+}
+
+function renderUnitPage(){
+  if(!unitData) return;
+  const lang = currentLang;
+
+  document.getElementById('unitEyebrow').textContent = unitData.meta.eyebrow[lang];
+  document.getElementById('unitTitle').textContent = unitData.meta.title[lang];
+  document.getElementById('unitSubtitle').textContent = unitData.meta.subtitle[lang];
+  document.title = `${unitData.meta.title[lang]} · Fieldcraft`;
+
+  // Safety chips
+  const safetyWrap = document.getElementById('safetyChips');
+  safetyWrap.innerHTML = unitData.safety.map(s => `<span class="chip safety">⚠ ${s[lang]}</span>`).join('');
+
+  // Summary sections
+  const summaryWrap = document.getElementById('summarySections');
+  const heading = summaryWrap.querySelector('.section-title');
+  summaryWrap.innerHTML = '';
+  summaryWrap.appendChild(heading);
+
+  unitData.sections.forEach(sec => {
+    const el = document.createElement('article');
+    el.className = 'unit-section';
+    const valuesHTML = (sec.keyValues && sec.keyValues.length)
+      ? `<table class="values-table"><tbody>${sec.keyValues.map(v => `<tr><td>${v.label[lang]}</td><td>${v.value[lang]}</td></tr>`).join('')}</tbody></table>`
+      : '';
+    el.innerHTML = `
+      <p class="unit-section-id">${sec.id}</p>
+      <h3 class="unit-section-title">${sec.title[lang]}</h3>
+      <p class="unit-section-text">${sec.text[lang]}</p>
+      ${valuesHTML}
+    `;
+    summaryWrap.appendChild(el);
+  });
+
+  renderQuiz();
+}
+
+function renderQuiz(){
+  const lang = currentLang;
+  const wrap = document.getElementById('quizList');
+  wrap.innerHTML = '';
+
+  unitData.quiz.forEach(q => {
+    const item = document.createElement('div');
+    item.className = 'quiz-item';
+    item.setAttribute('data-qid', q.id);
+
+    const optionsHTML = q.options.map(opt => `
+      <button class="quiz-option" data-value="${opt.id}">${opt.text[lang]}</button>
+    `).join('');
+
+    item.innerHTML = `
+      <p class="quiz-question">${q.prompt[lang]}</p>
+      <div class="quiz-options">${optionsHTML}</div>
+      <p class="quiz-feedback"></p>
+    `;
+    wrap.appendChild(item);
+
+    // Restore answered state if already answered
+    const state = quizState[q.id];
+    if(state){
+      applyQuizAnswerUI(item, q, state.picked, lang);
+    }
+  });
+
+  updateScoreUI();
+  bindQuizOptions();
+}
+
+function applyQuizAnswerUI(item, q, picked, lang){
+  item.querySelectorAll('.quiz-option').forEach(o => {
+    o.disabled = true;
+    if(o.getAttribute('data-value') === q.correct) o.classList.add('correct');
+    if(o.getAttribute('data-value') === picked && picked !== q.correct) o.classList.add('incorrect');
+  });
+  const isCorrect = picked === q.correct;
+  const feedback = item.querySelector('.quiz-feedback');
+  feedback.textContent = `${t(isCorrect ? 'quiz.correct' : 'quiz.incorrect')} ${q.explanation[lang]}`;
+}
+
+function bindQuizOptions(){
   document.querySelectorAll('.quiz-item').forEach(item => {
-    const answer = item.getAttribute('data-answer');
-    const feedback = item.querySelector('.quiz-feedback');
+    const qId = item.getAttribute('data-qid');
+    const q = unitData.quiz.find(x => x.id === qId);
     item.querySelectorAll('.quiz-option').forEach(opt => {
       opt.addEventListener('click', () => {
-        const isCorrect = opt.getAttribute('data-value') === answer;
-        item.querySelectorAll('.quiz-option').forEach(o => {
-          o.disabled = true;
-          if(o.getAttribute('data-value') === answer) o.classList.add('correct');
-        });
-        if(!isCorrect) opt.classList.add('incorrect');
-        feedback.textContent = t(isCorrect ? 'quiz.correct' : 'quiz.incorrect');
+        if(quizState[qId]) return; // already answered
+        const picked = opt.getAttribute('data-value');
+        quizState[qId] = { picked, correct: picked === q.correct };
+        applyQuizAnswerUI(item, q, picked, currentLang);
+        updateScoreUI();
       });
     });
   });
 }
 
-document.addEventListener('DOMContentLoaded', bindQuiz);
+function updateScoreUI(){
+  const total = unitData.quiz.length;
+  const answered = Object.keys(quizState).length;
+  const correct = Object.values(quizState).filter(s => s.correct).length;
+  document.getElementById('quizScore').textContent =
+    `${t('quiz.scoreLabel')}: ${correct}/${total} (${answered}/${total} ${currentLang === 'pt' ? 'respondidas' : 'answered'})`;
+}
+
+document.addEventListener('DOMContentLoaded', loadUnitData);
