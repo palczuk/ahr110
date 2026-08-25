@@ -34,7 +34,7 @@ const UNITS_DATA = {
             "pt": "Refrigeração e Refrigerantes",
             "en": "Refrigeration and Refrigerants"
           },
-          "status": "planned",
+          "status": "available",
           "href": "unit-03.html"
         }
       ]
