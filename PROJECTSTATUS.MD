@@ -29,10 +29,12 @@ fieldcraft/
 │
 ├── unit-01.html            → página da Unidade 1 (resumo + quiz)
 ├── unit-02.html            → página da Unidade 2 (resumo + quiz)
+├── unit-03.html            → página da Unidade 3 (resumo + quiz)
 ├── unit.css                 → CSS específico das páginas de unidade (cards de resumo, quiz)
 ├── unit.js                   → lógica da página de unidade (renderiza resumo + quiz a partir de window.CURRENT_UNIT_DATA — genérico, não fixo em UNIT1_DATA)
 ├── unit1-data.js               → conteúdo da Unidade 1, bilíngue (resumos + 25 perguntas de quiz) — const UNIT1_DATA = {...}
 ├── unit2-data.js               → conteúdo da Unidade 2, bilíngue (resumos + 25 perguntas de quiz) — const UNIT2_DATA = {...}
+├── unit3-data.js               → conteúdo da Unidade 3, bilíngue (resumos + 25 perguntas de quiz) — const UNIT3_DATA = {...}
 │
 └── ahr110/                      → módulo separado, aprofundamento da disciplina AHR 110 (SÓ EM PORTUGUÊS por ora)
     ├── index.html
@@ -41,10 +43,10 @@ fieldcraft/
     └── data.json                  → conteúdo dos itens 2–11 do syllabus do AHR 110
 ```
 
-**Padrão para criar as próximas unidades (Unit 3, 4...):**
-1. Duplicar `unit-02.html` → `unit-03.html` (trocar o `<title>`, o `<script src="unit2-data.js">` para `unit3-data.js`, e a linha `window.CURRENT_UNIT_DATA = UNIT2_DATA;` para `UNIT3_DATA`).
-2. Criar `unit3-data.js` seguindo exatamente a mesma estrutura de `unit1-data.js` / `unit2-data.js` (ver seção 5 abaixo).
-3. Em `units-data.js`, mudar o `status` da unidade de `"planned"` para `"available"` e o `href` para `unit-03.html`.
+**Padrão para criar as próximas unidades (Unit 4, 5...):**
+1. Duplicar `unit-03.html` → `unit-04.html` (trocar o `<title>`, o `<script src="unit3-data.js">` para `unit4-data.js`, e a linha `window.CURRENT_UNIT_DATA = UNIT3_DATA;` para `UNIT4_DATA`).
+2. Criar `unit4-data.js` seguindo exatamente a mesma estrutura de `unit1-data.js` / `unit2-data.js` / `unit3-data.js` (ver seção 5 abaixo).
+3. Em `units-data.js`, mudar o `status` da unidade de `"planned"` para `"available"` e o `href` para `unit-04.html`.
 4. **Não é mais necessário editar `unit.js`** — desde a Unidade 2, ele lê `window.CURRENT_UNIT_DATA` de forma genérica (ver seção 6, "Concluído").
 
 ---
@@ -112,10 +114,11 @@ const UNITN_DATA = {
 **Concluído:**
 - [x] Generalizar `unit.js` para não depender de `UNIT1_DATA` fixo — agora lê `window.CURRENT_UNIT_DATA`, definido individualmente por cada `unit-0N.html`.
 - [x] Unidade 2 (Matéria e Energia) criada — `unit-02.html` + `unit2-data.js`, 14 seções de resumo + 25 perguntas de quiz, bilíngue PT/EN.
-- [x] `units-data.js` atualizado — status da Unidade 2 mudado de `planned` para `available`.
+- [x] Unidade 3 (Refrigeração e Refrigerantes) criada — `unit-03.html` + `unit3-data.js`, 17 seções de resumo + 25 perguntas de quiz, bilíngue PT/EN.
+- [x] `units-data.js` atualizado — status das Unidades 2 e 3 mudado de `planned` para `available`.
 
 **Pendências:**
-- [ ] Criar `unit-03.html` + `unit3-data.js` quando o conteúdo da Unidade 3 (Refrigeração e Refrigerantes) for enviado.
+- [ ] Criar `unit-04.html` + `unit4-data.js` quando o conteúdo da Unidade 4 (Práticas Gerais de Segurança) for enviado.
 - [ ] Considerar traduzir o módulo AHR 110 (`ahr110/`) para bilíngue no futuro — hoje ele é só PT-BR (decisão consciente de escopo, não pendência urgente).
 - [ ] Manter este arquivo (`PROJECT-STATUS.md`) atualizado a cada unidade concluída.
 
