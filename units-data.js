@@ -25,7 +25,7 @@ const UNITS_DATA = {
             "pt": "Matéria e Energia",
             "en": "Matter and Energy"
           },
-          "status": "planned",
+          "status": "available",
           "href": "unit-02.html"
         },
         {

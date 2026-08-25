@@ -4,7 +4,7 @@ Object.assign(i18n.pt, {
   'unit.safety.title': 'Segurança primeiro',
   'unit.summary.title': 'Resumo',
   'unit.quiz.title': 'Quiz',
-  'unit.quiz.sub': 'Baseado nas perguntas de revisão da Unidade 1 do livro-texto.',
+  'unit.quiz.sub': 'Baseado nas perguntas de revisão desta unidade do livro-texto.',
   'quiz.correct': '✓ Correto.',
   'quiz.incorrect': '✕ Não é essa — a resposta certa está destacada.',
   'quiz.scoreLabel': 'Pontuação'
@@ -14,7 +14,7 @@ Object.assign(i18n.en, {
   'unit.safety.title': 'Safety first',
   'unit.summary.title': 'Summary',
   'unit.quiz.title': 'Quiz',
-  'unit.quiz.sub': 'Based on the Unit 1 review questions from the textbook.',
+  'unit.quiz.sub': 'Based on this unit\u2019s review questions from the textbook.',
   'quiz.correct': '✓ Correct.',
   'quiz.incorrect': '✕ Not quite — the correct answer is highlighted.',
   'quiz.scoreLabel': 'Score'
@@ -25,7 +25,7 @@ let quizState = {}; // { qId: { picked, correct } }
 let quizIndex = 0; // current question index in the stepper
 
 function loadUnitData(){
-  unitData = UNIT1_DATA;
+  unitData = window.CURRENT_UNIT_DATA;
   renderUnitPage();
 }
 
