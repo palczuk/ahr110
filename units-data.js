@@ -17,7 +17,7 @@ const UNITS_DATA = {
             "en": "Heat, Temperature, and Pressure"
           },
           "status": "available",
-          "href": "unit-01.html"
+          "href": "unit.html?unit=01"
         },
         {
           "id": 2,
@@ -26,7 +26,7 @@ const UNITS_DATA = {
             "en": "Matter and Energy"
           },
           "status": "available",
-          "href": "unit-02.html"
+          "href": "unit.html?unit=02"
         },
         {
           "id": 3,
@@ -35,7 +35,7 @@ const UNITS_DATA = {
             "en": "Refrigeration and Refrigerants"
           },
           "status": "available",
-          "href": "unit-03.html"
+          "href": "unit.html?unit=03"
         }
       ]
     },

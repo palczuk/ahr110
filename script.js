@@ -1,175 +1,218 @@
-const LANG_KEY = 'fieldcraft-lang';
+const LANG_KEY = 'hvacr-study-language';
+const PROGRESS_KEY = 'hvacr-study-progress';
 
 const i18n = {
   pt: {
-    'brand.tagline': 'JOSIMAR PALCZUK · HVACR',
-    'nav.heading': 'UNIDADES DO LIVRO',
-    'nav.sub': 'Refrigeration & Air Conditioning Technology',
-    'nav.companionTitle': 'AHR 110 · Companion do curso',
-    'companion.eyebrow': 'Material complementar',
-    'companion.sub': 'Resumo aprofundado dos itens 2–11 do syllabus da disciplina — evaporadores, compressores, manifold, evacuação, carga, recuperação, tubulação, elétrica e prep para o EPA 608.',
-    'hero.eyebrow': 'Base de estudos HVACR',
-    'hero.title': 'O ciclo que move<br>todo o resto.',
-    'hero.sub': 'Quatro componentes, um circuito fechado, duas pressões. Entenda o ciclo de refrigeração antes de entrar em qualquer unidade do livro.',
-    'cycle.title': 'O Ciclo de Refrigeração',
-    'cycle.sub': 'Toque em cada componente para ver sua função no ciclo.',
-    'cycle.hint': '↑ Escolha um componente acima para ver a explicação aqui.',
-    'banner.text': 'Este site é um resumo de estudos pessoal, escrito com linguagem própria, e não reproduz o conteúdo do livro-texto. Não substitui a leitura do livro original nem viola os direitos autorais dos autores — é um material complementar de apoio ao estudo.',
-    'banner.cta': '📘 Comprar o livro-texto original',
-    'footer.line1': 'Base de estudos pessoal para o programa de HVACR — Fayetteville Technical Community College.',
-    'footer.line2': 'Josimar Palczuk — material de estudo pessoal, não substitui o syllabus oficial da instituição.',
-    'badge.available': 'disponível',
-    'badge.planned': 'em breve',
-    'cycle.evaporator.name': 'Evaporador',
-    'cycle.compressor.name': 'Compressor',
-    'cycle.condenser.name': 'Condensador',
-    'cycle.valve.name': 'Válvula de Expansão',
-    'cycle.evaporator.role': 'Lado de baixa pressão',
-    'cycle.compressor.role': 'Transição baixa → alta pressão',
-    'cycle.condenser.role': 'Lado de alta pressão',
-    'cycle.valve.role': 'Transição alta → baixa pressão',
-    'cycle.evaporator.text': 'É onde o refrigerante ferve a baixa pressão, absorvendo calor do ar (ou produto) ao redor. Entra como mistura líquido/vapor de baixa temperatura e sai como vapor de baixa pressão, idealmente com um pouco de superaquecimento — sinal de que não sobrou líquido para seguir ao compressor.',
-    'cycle.compressor.text': 'Recebe o vapor de baixa pressão vindo do evaporador e o comprime, elevando sua pressão e temperatura. É a "bomba" que faz o refrigerante circular pelo sistema. Compressores nunca devem receber líquido — só vapor — por isso o controle de superaquecimento é tão importante.',
-    'cycle.condenser.text': 'Recebe o vapor quente e de alta pressão do compressor e rejeita esse calor para o ambiente (ar ou água), fazendo o refrigerante condensar de volta a líquido. Sai como líquido de alta pressão, geralmente sub-resfriado alguns graus abaixo da sua temperatura de saturação.',
-    'cycle.valve.text': 'O dispositivo de expansão (válvula termostática ou tubo capilar) restringe o fluxo do líquido de alta pressão, causando uma queda brusca de pressão. Esse líquido de baixa pressão entra no evaporador pronto para ferver novamente, fechando o ciclo.'
+    'a11y.skip': 'Pular para o conteúdo',
+    'banner.text': 'Material de estudo pessoal, escrito em linguagem própria. Use-o como complemento — não como substituto — do livro-texto e do curso oficial.',
+    'banner.cta': 'Ver livro-texto',
+    'brand.tagline': 'BASE DE ESTUDOS HVACR',
+    'header.roadmap': 'Trilha do curso',
+    'hero.eyebrow': 'GUIA DE ESTUDO EM CAMPO',
+    'hero.title': 'Entenda o ciclo.<br><span>Construa o raciocínio.</span>',
+    'hero.lede': 'Uma base prática para ligar teoria, instrumentos e decisões reais de HVACR — no seu ritmo e em dois idiomas.',
+    'hero.continue': 'Começar a trilha',
+    'hero.explore': 'Explorar o ciclo',
+    'dashboard.eyebrow': 'PAINEL DE ESTUDOS',
+    'dashboard.live': 'EM ATUALIZAÇÃO',
+    'dashboard.title': 'Seu mapa de progresso',
+    'dashboard.completed': 'concluídas',
+    'dashboard.available': 'publicadas',
+    'dashboard.total': 'no mapa',
+    'roadmap.eyebrow': 'PROGRAMA DE ESTUDOS',
+    'roadmap.title': 'Escolha uma unidade e siga o fio.',
+    'roadmap.note': 'As unidades publicadas abrem em uma página única; para criar a próxima, você adiciona somente o conteúdo.',
+    'unit.available': 'abrir unidade',
+    'unit.planned': 'em preparação',
+    'unit.completed': 'concluída',
+    'cycle.eyebrow': 'CONCEITO-BASE',
+    'cycle.title': 'O circuito que sustenta todo o resto.',
+    'cycle.note': 'Selecione uma etapa para revisar a função dela no ciclo.',
+    'cycle.hint': 'Escolha uma das quatro etapas para ver o que muda com pressão, temperatura e estado do refrigerante.',
+    'cycle.evaporator.name': 'Evaporador', 'cycle.evaporator.short': 'absorve', 'cycle.evaporator.role': 'Lado de baixa pressão',
+    'cycle.evaporator.text': 'O refrigerante ferve em baixa pressão e absorve calor do ar ou produto. Ele deve deixar o evaporador como vapor, com superaquecimento suficiente para proteger o compressor.',
+    'cycle.compressor.name': 'Compressor', 'cycle.compressor.short': 'eleva', 'cycle.compressor.role': 'Transição de baixa para alta',
+    'cycle.compressor.text': 'Recebe vapor de baixa pressão e aumenta sua pressão e temperatura. É o componente que mantém o refrigerante em movimento — e nunca deve receber líquido.',
+    'cycle.condenser.name': 'Condensador', 'cycle.condenser.short': 'rejeita', 'cycle.condenser.role': 'Lado de alta pressão',
+    'cycle.condenser.text': 'Remove do sistema o calor absorvido e o calor da compressão. O vapor quente perde energia, condensa e segue como líquido de alta pressão, normalmente sub-resfriado.',
+    'cycle.valve.name': 'Expansão', 'cycle.valve.short': 'dosifica', 'cycle.valve.role': 'Transição de alta para baixa',
+    'cycle.valve.text': 'O dispositivo de expansão restringe o líquido de alta pressão. A queda de pressão cria uma mistura fria de líquido e vapor que entra no evaporador pronta para absorver calor outra vez.',
+    'cycle.return': '← baixa pressão · retorno ao evaporador',
+    'companion.eyebrow': 'EM PREPARAÇÃO',
+    'companion.title': 'AHR 110 · Companion do curso',
+    'companion.text': 'O módulo aprofundado volta como uma trilha própria quando o conteúdo estiver organizado e revisado. Assim não há links quebrados nem material pela metade.',
+    'companion.item1': 'Priorizar segurança, instrumentos e diagnóstico',
+    'companion.item2': 'Manter fontes e datas de revisão visíveis',
+    'companion.item3': 'Publicar por blocos úteis de prática',
+    'footer.text': 'Material complementar pessoal. Confirme requisitos e procedimentos com o curso, fabricantes e normas vigentes.',
+    'progress.next': 'Próximo passo: Unidade {unit} — {title}.',
+    'progress.done': 'Você concluiu todas as unidades já publicadas. Ótimo trabalho.',
+    'progress.status': '{done} de {available} unidades publicadas concluídas'
   },
   en: {
-    'brand.tagline': 'JOSIMAR PALCZUK · HVACR',
-    'nav.heading': 'BOOK UNITS',
-    'nav.sub': 'Refrigeration & Air Conditioning Technology',
-    'nav.companionTitle': 'AHR 110 · Course Companion',
-    'companion.eyebrow': 'Companion material',
-    'companion.sub': 'In-depth summary of syllabus items 2–11 — evaporators, compressors, manifold gauges, evacuation, charging, recovery, tubing, electrical, and EPA 608 prep.',
-    'hero.eyebrow': 'HVACR study base',
-    'hero.title': 'The cycle that drives<br>everything else.',
-    'hero.sub': 'Four components, one closed loop, two pressures. Understand the refrigeration cycle before diving into any unit in the book.',
-    'cycle.title': 'The Refrigeration Cycle',
-    'cycle.sub': 'Tap each component to see its role in the cycle.',
-    'cycle.hint': '↑ Pick a component above to see the explanation here.',
-    'banner.text': 'This site is a personal study summary, written in original language, and does not reproduce the textbook\u2019s content. It does not replace reading the original book or infringe the authors\u2019 copyright — it\u2019s supplementary study material.',
-    'banner.cta': '📘 Buy the original textbook',
-    'footer.line1': 'Personal study base for the HVACR program — Fayetteville Technical Community College.',
-    'footer.line2': 'Josimar Palczuk — personal study material, does not replace the institution\u2019s official syllabus.',
-    'badge.available': 'available',
-    'badge.planned': 'coming soon',
-    'cycle.evaporator.name': 'Evaporator',
-    'cycle.compressor.name': 'Compressor',
-    'cycle.condenser.name': 'Condenser',
-    'cycle.valve.name': 'Expansion Valve',
-    'cycle.evaporator.role': 'Low-pressure side',
-    'cycle.compressor.role': 'Low → high pressure transition',
-    'cycle.condenser.role': 'High-pressure side',
-    'cycle.valve.role': 'High → low pressure transition',
-    'cycle.evaporator.text': 'Where the refrigerant boils at low pressure, absorbing heat from the surrounding air (or product). It enters as a low-temperature liquid/vapor mix and leaves as low-pressure vapor, ideally carrying a bit of superheat — a sign that no liquid is left to reach the compressor.',
-    'cycle.compressor.text': 'Takes in low-pressure vapor from the evaporator and compresses it, raising its pressure and temperature. It\u2019s the "pump" that keeps refrigerant circulating through the system. Compressors should never receive liquid — only vapor — which is why controlling superheat matters so much.',
-    'cycle.condenser.text': 'Takes in hot, high-pressure vapor from the compressor and rejects that heat to the surroundings (air or water), condensing the refrigerant back into liquid. It leaves as high-pressure liquid, usually subcooled a few degrees below its saturation temperature.',
-    'cycle.valve.text': 'The metering device (thermostatic expansion valve or capillary tube) restricts the flow of high-pressure liquid, causing a sharp pressure drop. That low-pressure liquid enters the evaporator ready to boil again, closing the loop.'
+    'a11y.skip': 'Skip to content',
+    'banner.text': 'Personal study material written in original language. Use it as a complement — not a replacement — for the textbook and official course.',
+    'banner.cta': 'View textbook',
+    'brand.tagline': 'HVACR STUDY BASE',
+    'header.roadmap': 'Course path',
+    'hero.eyebrow': 'FIELD STUDY GUIDE',
+    'hero.title': 'Understand the cycle.<br><span>Build the reasoning.</span>',
+    'hero.lede': 'A practical base for connecting theory, instruments, and real HVACR decisions — at your pace and in two languages.',
+    'hero.continue': 'Start the path',
+    'hero.explore': 'Explore the cycle',
+    'dashboard.eyebrow': 'STUDY DASHBOARD',
+    'dashboard.live': 'BEING UPDATED',
+    'dashboard.title': 'Your progress map',
+    'dashboard.completed': 'completed',
+    'dashboard.available': 'published',
+    'dashboard.total': 'on the map',
+    'roadmap.eyebrow': 'STUDY PROGRAM',
+    'roadmap.title': 'Choose a unit and follow the thread.',
+    'roadmap.note': 'Published units open in one shared page; to create the next one, you only add its content.',
+    'unit.available': 'open unit',
+    'unit.planned': 'in preparation',
+    'unit.completed': 'completed',
+    'cycle.eyebrow': 'FOUNDATION CONCEPT',
+    'cycle.title': 'The circuit behind everything else.',
+    'cycle.note': 'Select one stage to review its role in the cycle.',
+    'cycle.hint': 'Choose one of the four stages to see what changes in refrigerant pressure, temperature, and state.',
+    'cycle.evaporator.name': 'Evaporator', 'cycle.evaporator.short': 'absorbs', 'cycle.evaporator.role': 'Low-pressure side',
+    'cycle.evaporator.text': 'The refrigerant boils at low pressure and absorbs heat from air or product. It should leave as vapor, with enough superheat to protect the compressor.',
+    'cycle.compressor.name': 'Compressor', 'cycle.compressor.short': 'raises', 'cycle.compressor.role': 'Low-to-high transition',
+    'cycle.compressor.text': 'It takes in low-pressure vapor and raises its pressure and temperature. This component keeps refrigerant moving — and should never receive liquid.',
+    'cycle.condenser.name': 'Condenser', 'cycle.condenser.short': 'rejects', 'cycle.condenser.role': 'High-pressure side',
+    'cycle.condenser.text': 'It rejects the heat absorbed by the system plus the heat of compression. Hot vapor loses energy, condenses, and continues as high-pressure liquid, usually subcooled.',
+    'cycle.valve.name': 'Expansion', 'cycle.valve.short': 'meters', 'cycle.valve.role': 'High-to-low transition',
+    'cycle.valve.text': 'The metering device restricts high-pressure liquid. The pressure drop creates a cold liquid-vapor mix that enters the evaporator ready to absorb heat again.',
+    'cycle.return': '← low pressure · return to evaporator',
+    'companion.eyebrow': 'IN PREPARATION',
+    'companion.title': 'AHR 110 · Course Companion',
+    'companion.text': 'The in-depth module returns as its own path once the material is organized and reviewed. That means no broken links or half-finished content.',
+    'companion.item1': 'Prioritize safety, instruments, and diagnosis',
+    'companion.item2': 'Keep sources and review dates visible',
+    'companion.item3': 'Publish in useful practice-oriented blocks',
+    'footer.text': 'Personal supplementary material. Confirm requirements and procedures with the course, manufacturers, and current standards.',
+    'progress.next': 'Next step: Unit {unit} — {title}.',
+    'progress.done': 'You have completed every published unit. Great work.',
+    'progress.status': '{done} of {available} published units completed'
   }
 };
 
 let currentLang = localStorage.getItem(LANG_KEY) || 'pt';
-let unitsData = null;
-let activeNode = null;
+let activeCycle = null;
 
 function t(key){
-  return (i18n[currentLang] && i18n[currentLang][key]) || key;
+  return i18n[currentLang]?.[key] || key;
+}
+
+function allUnits(){
+  if(typeof UNITS_DATA === 'undefined') return [];
+  return UNITS_DATA.sections.flatMap(section => section.units.map(unit => ({...unit, section})));
+}
+
+function getProgress(){
+  try { return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {}; }
+  catch { return {}; }
+}
+
+function setUnitCompleted(unitId, completed){
+  const progress = getProgress();
+  if(completed) progress[String(unitId)] = { completed:true, updatedAt:new Date().toISOString() };
+  else delete progress[String(unitId)];
+  localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
+  return progress;
+}
+
+function replaceTokens(text, values){
+  return Object.entries(values).reduce((result, [key, value]) => result.replaceAll(`{${key}}`, value), text);
 }
 
 function applyLanguage(lang){
   currentLang = lang;
   localStorage.setItem(LANG_KEY, lang);
-  document.getElementById('htmlRoot').setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    el.innerHTML = t(key);
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const key = element.dataset.i18n;
+    element.innerHTML = t(key);
   });
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-  });
-
-  if(unitsData) renderUnits(unitsData);
-  if(activeNode) renderCycleDetail(activeNode);
-  if(typeof renderUnitPage === 'function' && unitData) renderUnitPage();
+  document.querySelectorAll('.lang-btn').forEach(button => button.classList.toggle('active', button.dataset.lang === lang));
+  if(document.getElementById('courseMap')) renderHomepage();
+  if(activeCycle) renderCycleDetail(activeCycle);
+  if(typeof window.renderUnitPage === 'function') window.renderUnitPage();
 }
 
-function bindLangSwitch(){
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang')));
+function bindLanguageSwitch(){
+  document.querySelectorAll('.lang-btn').forEach(button => {
+    button.addEventListener('click', () => applyLanguage(button.dataset.lang));
   });
 }
 
-/* ---------- Cycle diagram ---------- */
+function renderHomepage(){
+  const map = document.getElementById('courseMap');
+  if(!map || typeof UNITS_DATA === 'undefined') return;
+  const progress = getProgress();
+  map.innerHTML = UNITS_DATA.sections.map(section => `
+    <section class="course-group">
+      <h3 class="course-group-title">${section.title[currentLang]}</h3>
+      <div class="unit-grid">
+        ${section.units.map(unit => unitCard(unit, progress)).join('')}
+      </div>
+    </section>
+  `).join('');
+  updateDashboard(progress);
+}
+
+function unitCard(unit, progress){
+  const isAvailable = unit.status === 'available';
+  const isComplete = Boolean(progress[String(unit.id)]?.completed);
+  const tag = isAvailable ? 'a' : 'article';
+  const href = isAvailable ? ` href="${unit.href}"` : '';
+  const stateLabel = isComplete ? t('unit.completed') : isAvailable ? t('unit.available') : t('unit.planned');
+  const stateArrow = isAvailable ? '<b aria-hidden="true">→</b>' : '<b aria-hidden="true">·</b>';
+  return `<${tag}${href} class="unit-card ${isAvailable ? 'available' : 'is-planned'} ${isComplete ? 'complete' : ''}">
+    <span class="unit-number">UNIT ${String(unit.id).padStart(2,'0')}</span>
+    <h3>${unit.title[currentLang]}</h3>
+    <div class="unit-card-footer"><span>${stateLabel}</span>${stateArrow}</div>
+  </${tag}>`;
+}
+
+function updateDashboard(progress){
+  const units = allUnits();
+  const available = units.filter(unit => unit.status === 'available');
+  const completed = available.filter(unit => progress[String(unit.id)]?.completed);
+  const next = available.find(unit => !progress[String(unit.id)]?.completed);
+  const total = units.length;
+  document.getElementById('availableUnits').textContent = available.length;
+  document.getElementById('completedUnits').textContent = completed.length;
+  document.getElementById('totalUnits').textContent = total;
+  document.getElementById('progressFill').style.width = `${available.length ? (completed.length / available.length) * 100 : 0}%`;
+  document.getElementById('studyStatus').textContent = replaceTokens(t('progress.status'), {done:completed.length, available:available.length});
+  document.getElementById('nextUnitNote').textContent = next
+    ? replaceTokens(t('progress.next'), {unit:String(next.id).padStart(2,'0'), title:next.title[currentLang]})
+    : t('progress.done');
+  const continueUnit = document.getElementById('continueUnit');
+  if(continueUnit && next) continueUnit.href = next.href;
+}
+
 function renderCycleDetail(node){
-  activeNode = node;
-  const stageColor = { evaporator:'#3fa9f5', compressor:null, condenser:'#e2453c', valve:null };
-  const dot = stageColor[node] || 'linear-gradient(90deg,#3fa9f5,#e2453c)';
-  const wrap = document.getElementById('cycleDetail');
-  wrap.innerHTML = `
-    <div class="cycle-detail-head">
-      <span class="cycle-detail-dot" style="background:${dot}"></span>
-      <h3 class="cycle-detail-title">${t('cycle.'+node+'.name')}</h3>
-    </div>
-    <p class="cycle-detail-role">${t('cycle.'+node+'.role')}</p>
-    <p class="cycle-detail-text">${t('cycle.'+node+'.text')}</p>
-  `;
-  document.querySelectorAll('.cycle-node').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-node') === node);
-  });
+  activeCycle = node;
+  const detail = document.getElementById('cycleDetail');
+  if(!detail) return;
+  const colorClass = node === 'condenser' ? 'high' : node === 'evaporator' ? 'low' : 'mixed';
+  detail.innerHTML = `<div class="cycle-detail-head ${colorClass}">${t(`cycle.${node}.name`)}</div>
+    <p class="cycle-detail-role">${t(`cycle.${node}.role`)}</p>
+    <p class="cycle-detail-text">${t(`cycle.${node}.text`)}</p>`;
+  document.querySelectorAll('[data-cycle]').forEach(button => button.classList.toggle('active', button.dataset.cycle === node));
 }
 
-function bindCycleNodes(){
-  document.querySelectorAll('.cycle-node').forEach(btn => {
-    btn.addEventListener('click', () => renderCycleDetail(btn.getAttribute('data-node')));
+function bindCycle(){
+  document.querySelectorAll('[data-cycle]').forEach(button => {
+    button.addEventListener('click', () => renderCycleDetail(button.dataset.cycle));
   });
-}
-
-/* ---------- Units menu ---------- */
-function renderUnits(data){
-  unitsData = data;
-  const wrap = document.getElementById('unitsWrap');
-  wrap.innerHTML = '';
-  data.sections.forEach(section => {
-    const block = document.createElement('div');
-    block.className = 'unit-section';
-    const title = document.createElement('p');
-    title.className = 'unit-section-title';
-    title.textContent = section.title[currentLang];
-    block.appendChild(title);
-
-    const list = document.createElement('ol');
-    list.className = 'unit-list';
-    section.units.forEach(u => {
-      const li = document.createElement('li');
-      const isAvailable = u.status === 'available';
-      const tag = isAvailable ? 'a' : 'div';
-      const row = document.createElement(tag);
-      row.className = 'unit-row' + (isAvailable ? '' : ' is-planned');
-      if(isAvailable) row.setAttribute('href', u.href);
-      row.innerHTML = `
-        <span class="unit-num">${String(u.id).padStart(2,'0')}</span>
-        <span class="unit-title">${u.title[currentLang]}</span>
-        <span class="unit-badge">${isAvailable ? t('badge.available') : t('badge.planned')}</span>
-      `;
-      li.appendChild(row);
-      list.appendChild(li);
-    });
-    block.appendChild(list);
-    wrap.appendChild(block);
-  });
-
-  const noteEl = document.getElementById('unitsNote');
-  if(noteEl) noteEl.textContent = data.note[currentLang];
-}
-
-function loadUnits(){
-  renderUnits(UNITS_DATA);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  bindLangSwitch();
-  bindCycleNodes();
+  bindLanguageSwitch();
+  bindCycle();
   applyLanguage(currentLang);
-  loadUnits();
 });

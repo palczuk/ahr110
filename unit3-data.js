@@ -614,3 +614,5 @@ const UNIT3_DATA = {
     }
   ]
 };
+
+window.CURRENT_UNIT_DATA = UNIT3_DATA;

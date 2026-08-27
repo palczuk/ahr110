@@ -560,3 +560,5 @@ const UNIT2_DATA = {
     }
   ]
 };
+
+window.CURRENT_UNIT_DATA = UNIT2_DATA;

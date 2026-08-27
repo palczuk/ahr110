@@ -1,119 +1,129 @@
 <!DOCTYPE html>
 <html lang="pt-BR" id="htmlRoot">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HVACR Study Base</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Base de estudos HVACR bilíngue, organizada por unidades, conceitos e prática.">
+  <title>HVACR Study Base · Josimar Palczuk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#mainContent" data-i18n="a11y.skip">Pular para o conteúdo</a>
 
-<div class="book-notice">
-  <p class="book-notice-text" data-i18n="banner.text">Este site é um resumo de estudos pessoal, escrito com linguagem própria, e não reproduz o conteúdo do livro-texto. Não substitui a leitura do livro original nem viola os direitos autorais dos autores — é um material complementar de apoio ao estudo.</p>
-  <a class="book-notice-link" href="https://www.amazon.com/dp/0357122275?ref=ppx_yo2ov_dt_b_fed_asin_title" target="_blank" rel="noopener noreferrer" data-i18n="banner.cta">📘 Comprar o livro-texto original</a>
-</div>
-
-<header class="topbar">
-  <div class="topbar-inner">
-    <div class="brand">
-      <span class="brand-mark">⛭</span>
-      <div class="brand-text">
-        <span class="brand-line1">JOSIMAR PALCZUK</span>
-        <span class="brand-line2" data-i18n="brand.tagline">HVACR</span>
-      </div>
-    </div>
-    <div class="lang-switch" role="group" aria-label="Language / Idioma">
-      <button class="lang-btn" data-lang="pt">PT</button>
-      <button class="lang-btn" data-lang="en">EN</button>
-    </div>
+  <div class="book-notice" role="note">
+    <p data-i18n="banner.text">Material de estudo pessoal, escrito em linguagem própria. Use-o como complemento — não como substituto — do livro-texto e do curso oficial.</p>
+    <a class="book-notice-link" href="https://www.amazon.com/dp/0357122275?ref=ppx_yo2ov_dt_b_fed_asin_title" target="_blank" rel="noopener noreferrer" data-i18n="banner.cta">Ver livro-texto</a>
   </div>
-</header>
 
-<div class="layout">
-  <nav class="sidenav" aria-label="Book units">
-    <div class="sidenav-heading" data-i18n="nav.heading">UNIDADES DO LIVRO</div>
-    <p class="sidenav-sub" data-i18n="nav.sub">Refrigeration &amp; Air Conditioning Technology</p>
-    <div id="unitsWrap"></div>
-  </nav>
-
-  <main class="content">
-    <section class="hero">
-      <p class="hero-eyebrow" data-i18n="hero.eyebrow">Base de estudos HVACR</p>
-      <h1 class="hero-title" data-i18n="hero.title">O ciclo que move<br>todo o resto.</h1>
-      <p class="hero-sub" data-i18n="hero.sub">Quatro componentes, um circuito fechado, duas pressões. Entenda o ciclo de refrigeração antes de entrar em qualquer unidade do livro.</p>
-    </section>
-
-    <section class="cycle-section">
-      <h2 class="section-title" data-i18n="cycle.title">O Ciclo de Refrigeração</h2>
-      <p class="section-sub" data-i18n="cycle.sub">Toque em cada componente para ver sua função no ciclo.</p>
-
-      <div class="cycle-diagram">
-        <svg class="cycle-lines" viewBox="0 0 600 380" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-          <defs>
-            <marker id="arrowLow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-              <path d="M0,0 L10,5 L0,10 z" fill="#3fa9f5"/>
-            </marker>
-            <marker id="arrowHigh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-              <path d="M0,0 L10,5 L0,10 z" fill="#e2453c"/>
-            </marker>
-          </defs>
-          <!-- Evaporator (bottom-left) -> Compressor (bottom-right) : suction line, low side, blue -->
-          <path class="flow-line flow-low" d="M 130 300 L 470 300" marker-end="url(#arrowLow)"/>
-          <!-- Compressor (bottom-right) -> Condenser (top-right) : hot gas / discharge, high side, red -->
-          <path class="flow-line flow-high" d="M 470 280 L 470 100" marker-end="url(#arrowHigh)"/>
-          <!-- Condenser (top-right) -> Metering device (top-left) : liquid line, high side, red -->
-          <path class="flow-line flow-high" d="M 450 80 L 150 80" marker-end="url(#arrowHigh)"/>
-          <!-- Metering device (top-left) -> Evaporator (bottom-left) : low side entering, blue -->
-          <path class="flow-line flow-low" d="M 130 100 L 130 280" marker-end="url(#arrowLow)"/>
-        </svg>
-
-        <button class="cycle-node node-evaporator" data-node="evaporator" style="left:2%; bottom:6%;">
-          <span class="node-gauge" data-stage="low"></span>
-          <span class="node-label" data-i18n="cycle.evaporator.name">Evaporador</span>
-        </button>
-
-        <button class="cycle-node node-compressor" data-node="compressor" style="right:2%; bottom:6%;">
-          <span class="node-gauge" data-stage="mixed"></span>
-          <span class="node-label" data-i18n="cycle.compressor.name">Compressor</span>
-        </button>
-
-        <button class="cycle-node node-condenser" data-node="condenser" style="right:2%; top:6%;">
-          <span class="node-gauge" data-stage="high"></span>
-          <span class="node-label" data-i18n="cycle.condenser.name">Condensador</span>
-        </button>
-
-        <button class="cycle-node node-valve" data-node="valve" style="left:2%; top:6%;">
-          <span class="node-gauge" data-stage="mixed"></span>
-          <span class="node-label" data-i18n="cycle.valve.name">Válvula de Expansão</span>
-        </button>
-      </div>
-
-      <div class="cycle-detail" id="cycleDetail">
-        <p class="cycle-detail-hint" data-i18n="cycle.hint">↑ Escolha um componente acima para ver a explicação aqui.</p>
-      </div>
-    </section>
-
-    <section class="companion-section">
-      <a class="companion-card" href="ahr110/index.html">
-        <div class="companion-card-text">
-          <p class="companion-card-eyebrow" data-i18n="companion.eyebrow">Material complementar</p>
-          <h3 class="companion-card-title" data-i18n="nav.companionTitle">AHR 110 · Companion do curso</h3>
-          <p class="companion-card-sub" data-i18n="companion.sub">Resumo aprofundado dos itens 2–11 do syllabus da disciplina — evaporadores, compressores, manifold, evacuação, carga, recuperação, tubulação, elétrica e prep para o EPA 608.</p>
-        </div>
-        <span class="companion-arrow">→</span>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="HVACR Study Base">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>
+          <strong>JOSIMAR PALCZUK</strong>
+          <small data-i18n="brand.tagline">BASE DE ESTUDOS HVACR</small>
+        </span>
       </a>
+      <div class="header-actions">
+        <a class="header-link" href="#roadmap" data-i18n="header.roadmap">Trilha do curso</a>
+        <div class="lang-switch" role="group" aria-label="Language / Idioma">
+          <button class="lang-btn" type="button" data-lang="pt">PT</button>
+          <button class="lang-btn" type="button" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <section class="hero-shell">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="signal-dot"></span><span data-i18n="hero.eyebrow">GUIA DE ESTUDO EM CAMPO</span></p>
+        <h1 data-i18n="hero.title">Entenda o ciclo.<br><span>Construa o raciocínio.</span></h1>
+        <p class="hero-lede" data-i18n="hero.lede">Uma base prática para ligar teoria, instrumentos e decisões reais de HVACR — no seu ritmo e em dois idiomas.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" id="continueUnit" href="unit.html?unit=01">
+            <span data-i18n="hero.continue">Começar a trilha</span><span aria-hidden="true">→</span>
+          </a>
+          <a class="button button-quiet" href="#cycle" data-i18n="hero.explore">Explorar o ciclo</a>
+        </div>
+      </div>
+
+      <aside class="dashboard-card" aria-label="Course progress">
+        <div class="dashboard-heading">
+          <span data-i18n="dashboard.eyebrow">PAINEL DE ESTUDOS</span>
+          <span class="live-badge" data-i18n="dashboard.live">EM ATUALIZAÇÃO</span>
+        </div>
+        <p class="dashboard-title" id="studyStatus" data-i18n="dashboard.title">Seu mapa de progresso</p>
+        <div class="dashboard-meter" aria-hidden="true"><span id="progressFill"></span></div>
+        <div class="dashboard-stats">
+          <div><strong id="completedUnits">0</strong><span data-i18n="dashboard.completed">concluídas</span></div>
+          <div><strong id="availableUnits">3</strong><span data-i18n="dashboard.available">publicadas</span></div>
+          <div><strong id="totalUnits">22</strong><span data-i18n="dashboard.total">no mapa</span></div>
+        </div>
+        <p class="dashboard-note" id="nextUnitNote"></p>
+      </aside>
     </section>
 
-    <footer class="page-footer">
-      <p data-i18n="footer.line1">Base de estudos pessoal para o programa de HVACR — Fayetteville Technical Community College.</p>
-      <p class="page-footer-small" data-i18n="footer.line2">Fieldcraft — material de estudo pessoal, não substitui o syllabus oficial da instituição.</p>
-    </footer>
-  </main>
-</div>
+    <section class="cycle-section cycle-section-primary" id="cycle" aria-labelledby="cycleTitle">
+      <div class="section-heading compact-heading">
+        <div>
+          <p class="eyebrow" data-i18n="cycle.eyebrow">CONCEITO-BASE</p>
+          <h2 id="cycleTitle" data-i18n="cycle.title">O circuito que sustenta todo o resto.</h2>
+        </div>
+        <p class="section-note" data-i18n="cycle.note">Selecione uma etapa para revisar a função dela no ciclo.</p>
+      </div>
+      <div class="cycle-console">
+        <div class="cycle-square" aria-label="Refrigeration cycle">
+          <span class="cycle-flow flow-top" aria-hidden="true"></span>
+          <span class="cycle-flow flow-right" aria-hidden="true"></span>
+          <span class="cycle-flow flow-bottom" aria-hidden="true"></span>
+          <span class="cycle-flow flow-left" aria-hidden="true"></span>
 
-<script src="units-data.js"></script>
-<script src="script.js"></script>
+          <button class="cycle-node node-valve mixed" type="button" data-cycle="valve"><span>01</span><b data-i18n="cycle.valve.name">Expansão</b><small data-i18n="cycle.valve.short">dosifica</small></button>
+          <button class="cycle-node node-condenser high" type="button" data-cycle="condenser"><span>02</span><b data-i18n="cycle.condenser.name">Condensador</b><small data-i18n="cycle.condenser.short">rejeita</small></button>
+          <button class="cycle-node node-compressor mixed" type="button" data-cycle="compressor"><span>03</span><b data-i18n="cycle.compressor.name">Compressor</b><small data-i18n="cycle.compressor.short">eleva</small></button>
+          <button class="cycle-node node-evaporator low" type="button" data-cycle="evaporator"><span>04</span><b data-i18n="cycle.evaporator.name">Evaporador</b><small data-i18n="cycle.evaporator.short">absorve</small></button>
+        </div>
+        <div class="cycle-detail" id="cycleDetail" aria-live="polite">
+          <p class="cycle-detail-empty" data-i18n="cycle.hint">Escolha uma das quatro etapas para ver o que muda com pressão, temperatura e estado do refrigerante.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="course-section" id="roadmap" aria-labelledby="roadmapTitle">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="roadmap.eyebrow">PROGRAMA DE ESTUDOS</p>
+          <h2 id="roadmapTitle" data-i18n="roadmap.title">Escolha uma unidade e siga o fio.</h2>
+        </div>
+        <p class="section-note" data-i18n="roadmap.note">As unidades publicadas abrem em uma página única; para criar a próxima, você adiciona somente o conteúdo.</p>
+      </div>
+      <div class="course-map" id="courseMap"></div>
+    </section>
+
+    <section class="companion-section" aria-labelledby="companionTitle">
+      <div class="companion-copy">
+        <p class="eyebrow"><span class="amber-dot"></span><span data-i18n="companion.eyebrow">EM PREPARAÇÃO</span></p>
+        <h2 id="companionTitle" data-i18n="companion.title">AHR 110 · Companion do curso</h2>
+        <p data-i18n="companion.text">O módulo aprofundado volta como uma trilha própria quando o conteúdo estiver organizado e revisado. Assim não há links quebrados nem material pela metade.</p>
+      </div>
+      <div class="companion-checklist">
+        <span>01</span><p data-i18n="companion.item1">Priorizar segurança, instrumentos e diagnóstico</p>
+        <span>02</span><p data-i18n="companion.item2">Manter fontes e datas de revisão visíveis</p>
+        <span>03</span><p data-i18n="companion.item3">Publicar por blocos úteis de prática</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>JOSIMAR PALCZUK · HVACR STUDY BASE</p>
+    <p data-i18n="footer.text">Material complementar pessoal. Confirme requisitos e procedimentos com o curso, fabricantes e normas vigentes.</p>
+  </footer>
+
+  <script src="units-data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

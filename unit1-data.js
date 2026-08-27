@@ -1587,3 +1587,5 @@ const UNIT1_DATA = {
     }
   ]
 };
+
+window.CURRENT_UNIT_DATA = UNIT1_DATA;
